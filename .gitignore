@@ -1,5 +1,5 @@
 # vscode
-.vscode 
+.vscode
 
 # Intellij
 *.iml
@@ -13,3 +13,6 @@ node_modules
 
 # Exclude macOS Finder (System Explorer) View States
 .DS_Store
+
+# Exclude references
+reference/

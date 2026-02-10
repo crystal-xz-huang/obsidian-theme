@@ -1,10 +1,12 @@
 {
-    "name": "sample-obsidian-theme",
-    "version": "1.0.0",
-    "scripts": {
-        "version": "node version-bump.mjs && git add manifest.json versions.json"
-    },
-    "devDependencies": {
-        "sass": "^1.97.3"
-    }
+	"name": "sample-obsidian-theme",
+	"version": "1.0.0",
+	"scripts": {
+		"build": "sass src/theme.scss theme.css",
+		"watch": "sass --watch src/theme.scss:theme.css",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	},
+	"devDependencies": {
+		"sass": "^1.97.3"
+	}
 }
