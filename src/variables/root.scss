@@ -1,22 +1,37 @@
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 body,
 .theme-light,
 .theme-dark {
 	/* Window frame */
-    --titlebar-background: transparent;
-    --titlebar-background-focused: transparent;
+	--titlebar-background: transparent;
+	--titlebar-background-focused: transparent;
 
 	/* Dividers between panes */
-    --divider-color-hover: var(--color-base-50);
+	--divider-color-hover: var(--color-base-50);
 
-    /* Bold */
-    --bold-modifier: 300;
+	/* Bold */
+	--bold-modifier: 300;
 
-    /* Icons */
-    --icon-opacity: 1;
+	/* Icons */
+	--icon-opacity: 1;
 
-    /* Buttons */
-    --corner-smoothing: system-ui;
+	/* Buttons */
+	--corner-smoothing: system-ui;
 
-    --shadow-s: rgba(0, 0, 0, 0.08) 0px 12px 24px -4px, rgba(0, 0, 0, 0.04) 0px 8px 16px -4px;
-    --shadow-l: 0 14px 62px #00000040;
+	--shadow-s:
+		rgba(0, 0, 0, 0.08) 0px 12px 24px -4px,
+		rgba(0, 0, 0, 0.04) 0px 8px 16px -4px;
+	--shadow-l: 0 14px 62px #00000040;
+
+	/* Animations */
+	--anim-speed-modifier: 1;
+	--anim-motion-baseline: cubic-bezier(0.1, 0, 0.1, 1.25);
+	--anim-duration-superfast: calc(80ms * var(--anim-speed-modifier));
+	--anim-duration-fast: calc(160ms * var(--anim-speed-modifier));
+	--anim-duration-moderate: calc(320ms * var(--anim-speed-modifier));
+	--anim-duration-slow: calc(480ms * var(--anim-speed-modifier));
 }

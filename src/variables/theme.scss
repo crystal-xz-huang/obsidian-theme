@@ -1,27 +1,6 @@
 body,
 .theme-light,
 .theme-dark {
-	/* Animations */
-	--anim-speed-modifier: 1;
-	--anim-motion-baseline: cubic-bezier(0.1, 0, 0.1, 1.25);
-	--anim-duration-superfast: calc(80ms * var(--anim-speed-modifier));
-	--anim-duration-fast: calc(160ms * var(--anim-speed-modifier));
-	--anim-duration-moderate: calc(320ms * var(--anim-speed-modifier));
-	--anim-duration-slow: calc(480ms * var(--anim-speed-modifier));
-
-	/* Icons */
-	--icon-stroke-modifier: 1;
-	--icon-xs-stroke-width: calc(2.25px * var(--icon-stroke-modifier));
-	--icon-s-stroke-width: calc(2px * var(--icon-stroke-modifier));
-	--icon-m-stroke-width: calc(2px * var(--icon-stroke-modifier));
-	--icon-l-stroke-width: calc(2px * var(--icon-stroke-modifier));
-	--icon-xl-stroke-width: calc(1.25px * var(--icon-stroke-modifier));
-
-	/* Workspace */
-	--density-modifier: 1;
-	--translucent-light-opacity: 50%;
-	--translucent-dark-opacity: 50%;
-
 	/* Color mappings ------------------------ */
 	--color-red: rgb(var(--color-red-rgb));
 	--color-orange: rgb(var(--color-orange-rgb));
@@ -34,11 +13,6 @@ body,
 }
 
 .theme-light {
-	--workspace-background-translucent: rgb(
-		from var(--background-secondary) r g b /
-			var(--translucent-light-opacity)
-	);
-
 	--color-red-rgb: 254, 112, 112;
 	--color-orange-rgb: 242, 154, 100;
 	--color-yellow-rgb: 224, 205, 99;
@@ -61,10 +35,6 @@ body,
 }
 
 .theme-dark {
-	--workspace-background-translucent: rgb(
-		from var(--background-secondary) r g b / var(--translucent-dark-opacity)
-	);
-
 	--color-red-rgb: 217, 90, 95;
 	--color-orange-rgb: 219, 134, 80;
 	--color-yellow-rgb: 196, 180, 94;
