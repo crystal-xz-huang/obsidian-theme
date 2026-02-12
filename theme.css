@@ -3,6 +3,7 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body,
@@ -20,7 +21,7 @@ body,
   /* Buttons */
   --corner-smoothing: system-ui;
   --shadow-s:
-  	rgba(0, 0, 0, 0.08) 0px 12px 24px -4px,
+  	rgba(5, 3, 3, 0.08) 0px 12px 24px -4px,
   	rgba(0, 0, 0, 0.04) 0px 8px 16px -4px;
   --shadow-l: 0 14px 62px #00000040;
   /* Animations */
@@ -137,6 +138,8 @@ body,
     filter: blur(4px);
   }
 }
+/* Sidebar */
+/* ------------------------ */
 .sidebar-toggle-icon-inner {
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
 }
@@ -179,25 +182,6 @@ body:not(.is-phone) .workspace-tab-header-container {
   position: relative !important;
 }
 
-body:is(.tab-top-left-stacked, :not(.css-settings-manager)) .mod-sidedock.mod-left-split .mod-top-left-space .sidebar-toggle-button {
-  order: 1;
-  margin-left: auto;
-  max-height: var(--header-height);
-  min-height: var(--header-height);
-  padding-right: 0;
-}
-body:is(.tab-top-left-stacked, :not(.css-settings-manager)) .mod-sidedock.mod-left-split .mod-top-left-space .sidebar-toggle-button .clickable-icon {
-  margin: 8px;
-}
-
-.mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
-  margin-top: 0 !important;
-}
-
-body:not(.mod-macos).is-hidden-frameless .mod-sidedock .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
-  padding-right: var(--frame-right-space);
-}
-
 body.mod-macos.is-frameless:not(.is-popout-window) .workspace .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
   padding-right: 8px;
 }
@@ -207,12 +191,9 @@ body.mod-macos.is-frameless:not(.is-popout-window) .workspace .mod-root .sidebar
 }
 
 /* Titlebar */
+/* ------------------------ */
 body.is-frameless:not(.is-hidden-frameless, .is-fullscreen) .titlebar {
   background-color: var(--background-secondary);
-}
-
-body.titlebar-text-off .titlebar-text {
-  display: none;
 }
 
 /*# sourceMappingURL=theme.css.map */

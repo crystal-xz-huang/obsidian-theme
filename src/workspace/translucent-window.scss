@@ -1,0 +1,41 @@
+/* Translucent window */
+body,
+.theme-light,
+.theme-dark {
+	--density-modifier: 1;
+	--translucent-light-opacity: 50%;
+	--translucent-dark-opacity: 50%;
+}
+
+.theme-light {
+	--workspace-background-translucent: rgb(
+		from var(--background-secondary) r g b /
+			var(--translucent-light-opacity)
+	);
+}
+
+.theme-dark {
+	--workspace-background-translucent: rgb(
+		from var(--background-secondary) r g b / var(--translucent-dark-opacity)
+	);
+}
+
+@media (prefers-color-scheme: light) {
+	.theme-dark {
+		--workspace-background-translucent: var(--background-secondary);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.theme-light {
+		--workspace-background-translucent: var(--background-secondary);
+	}
+}
+
+.is-translucent {
+	--blur-s: none !important;
+	--blur-m: none !important;
+	--blur-l: none !important;
+
+	--divider-color: var(--background-modifier-border) !important;
+	--tab-outline-color: var(--background-modifier-border);
+}

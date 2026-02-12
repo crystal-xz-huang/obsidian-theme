@@ -1,0 +1,79 @@
+@keyframes workspaceLeafIn {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+		filter: blur(4px);
+	}
+}
+
+/* Sidebar */
+/* ------------------------ */
+.sidebar-toggle-icon-inner {
+	transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+}
+
+.sidebar-toggle-button .clickable-icon:hover .sidebar-toggle-icon-inner {
+	width: 24%;
+}
+
+.workspace.is-left-sidedock-open
+	.sidebar-toggle-button.mod-left
+	.clickable-icon:hover
+	.sidebar-toggle-icon-inner,
+.workspace.is-right-sidedock-open
+	.sidebar-toggle-button.mod-right
+	.clickable-icon:hover
+	.sidebar-toggle-icon-inner {
+	width: revert-layer;
+}
+
+// All panels
+body:not(.is-phone) .workspace-tab-header-container {
+	transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+	background-color: transparent;
+	border-bottom: none;
+}
+
+.sidebar-toggle-button {
+	padding-bottom: 8px;
+	align-items: center;
+}
+
+.sidebar-toggle-button .clickable-icon {
+	width: fit-content;
+	height: fit-content;
+}
+
+.workspace-tab-header-inner-icon {
+	color: inherit !important;
+}
+
+// Side Panels
+.workspace .mod-sidedock {
+	.workspace-tab-header-container,
+	.workspace-tab-header,
+	.workspace-tab-header div {
+		transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+	}
+
+	.sidebar-toggle-button {
+		position: relative !important;
+	}
+}
+
+body.mod-macos.is-frameless:not(.is-popout-window) .workspace {
+	.workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+		padding-right: 8px;
+	}
+
+	.mod-root .sidebar-toggle-button.mod-right {
+		position: relative;
+		padding-right: 0;
+	}
+}
+
+/* Titlebar */
+/* ------------------------ */
+body.is-frameless:not(.is-hidden-frameless, .is-fullscreen) .titlebar {
+	background-color: var(--background-secondary);
+}

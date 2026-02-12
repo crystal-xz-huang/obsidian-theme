@@ -1,4 +1,5 @@
-workspace
+# workspace.json
+workspace.json
 
 # vscode
 .vscode
@@ -18,3 +19,4 @@ node_modules
 
 # Exclude references
 reference/
+fonts/

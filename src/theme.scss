@@ -1,8 +1,7 @@
 /* Obsidian theme variables */
 /* ------------------------ */
-@use "variables/root";
-@use "variables/theme";
+@use "./variables";
 
 /* Obsidian app */
 /* ------------------------ */
-@use "./workspace";
+@use "./workspace"
