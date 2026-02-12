@@ -1,0 +1,8 @@
+body .status-bar {
+  transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+  border: none;
+  transform-origin: bottom right;
+  background-color: transparent;
+  min-height: 8px;
+  height: calc-size(auto, size);
+}

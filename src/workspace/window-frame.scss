@@ -78,3 +78,26 @@ body.is-frameless:not(.is-hidden-frameless, .is-fullscreen) .titlebar {
 	background-color: var(--background-secondary);
 }
 
+// Desktop sidedock
+body:not(.is-mobile) {
+  .mod-sidedock > .workspace-leaf-resize-handle:not(:hover) {
+    border-color: transparent;
+  }
+
+  .mod-sidedock .workspace-leaf {
+    background-color: transparent;
+  }
+  .mod-sidedock .workspace-leaf:not([style*="display: none"]) {
+    animation: workspaceLeafIn var(--anim-duration-moderate) var(--anim-motion-baseline) forwards;
+  }
+
+  // Sidedock padding
+  .mod-sidedock .workspace-leaf-content > .node-insert-event,
+  .mod-sidedock .workspace-leaf-content > .view-content {
+    padding: 2px 8px;
+
+    > .node-insert-event {
+      padding: 0;
+    }
+  }
+}
