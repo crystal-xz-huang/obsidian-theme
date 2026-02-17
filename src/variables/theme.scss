@@ -10,6 +10,9 @@ body,
 	--color-blue: rgb(var(--color-blue-rgb));
 	--color-purple: rgb(var(--color-purple-rgb));
 	--color-pink: rgb(var(--color-pink-rgb));
+
+  --accent-inactive: var(--color-blue);
+  --accent-active-bg: var(--color-pink);
 }
 
 .theme-light {
@@ -54,4 +57,10 @@ body,
 	--code-string: #58b6c2;
 	--code-tag: #e16d76;
 	--code-value: #c678de;
+}
+
+
+// Custom colors
+.theme-dark {
+  --text-accent: #99ceff;
 }
