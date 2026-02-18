@@ -1,0 +1,26 @@
+body {
+	--table-text-size: var(--font-small);
+	--table-add-button-border-width: 0;
+	--embed-block-shadow-hover: none;
+}
+
+// Hide empty header cells
+.markdown-preview-view table thead tr th:empty {
+	display: none;
+}
+
+// Full width tables by default
+body:not(.table-width-fit, .table-width-fit-center) table,
+body:not(.table-width-fit, .table-width-fit-center)
+	.markdown-source-view.mod-cm6
+	.cm-table-widget
+	.table-wrapper {
+	min-width: 100%;
+}
+
+// Center tables
+body.table-width-fit-center .el-table,
+body.table-width-fit-center .markdown-source-view.mod-cm6 .cm-table-widget {
+	display: flex;
+	justify-content: center;
+}
