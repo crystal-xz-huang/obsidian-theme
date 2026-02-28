@@ -1,0 +1,32 @@
+// Code block
+// from https://github.com/aaaaalexis/obsidian-baseline/blob/main/src/editor/editor.scss, author:@aaaaalexis
+body {
+	--code-border-width: 1px;
+	--code-size: var(--font-smallest);
+}
+
+.markdown-rendered pre {
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+.markdown-rendered code {
+	-electron-corner-smoothing: var(--corner-smoothing);
+	padding: 2px 4px;
+}
+.markdown-rendered pre code {
+	white-space: var(--code-white-space);
+}
+
+// Scrollable code blocks in preview
+body {
+	--code-white-space: pre;
+}
+
+// Keyboard shortcuts
+kbd {
+	box-shadow: var(--shadow-tactile);
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-secondary);
+	padding: var(--tag-padding-y) var(--tag-padding-x);
+	font-family: var(--font-text);
+	color: var(--text-muted);
+}

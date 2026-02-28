@@ -1,0 +1,71 @@
+/* Transcluded notes and embeds */
+/* Source: https://github.com/subframe7536/obsidian-theme-maple/blob/1.0/src/editor/embed.scss, author:@subframe7536 */
+body {
+	--embed-max-height: none;
+	--embed-decoration-style: solid;
+	--embed-decoration-color: var(--background-modifier-border-hover);
+
+	--embed-padding: var(--size-4-4) var(--size-4-5);
+	--embed-border-start: var(--size-2-1) solid var(--accent-inactive);
+	--embed-border-end: var(--embed-border-start);
+	--embed-border-top: var(--embed-border-start);
+	--embed-border-bottom: var(--embed-border-start);
+	--embed-radius: var(--radius-m);
+
+	.internal-embed.is-loaded:not(.image-embed) {
+		border-radius: var(--embed-radius);
+		margin-block: var(--size-4-1) !important;
+
+		&:hover {
+			border-color: var(--accent-active);
+		}
+
+		&:is(.mod-empty, .mod-empty-attachment) {
+			border: var(--size-2-1) dotted var(--text-faint);
+		}
+
+		:is(.markdown-embed-link, .file-embed-link) {
+			border-radius: var(--radius-s);
+
+			&:hover {
+				background-color: var(--nav-item-background-hover);
+			}
+		}
+
+		.markdown-embed-title {
+			display: none;
+		}
+	}
+}
+
+/* Strict embeds (naked) */
+/* Source: https://github.com/kepano/obsidian-minimal/blob/master/src/scss/content/embeds-transclusions.scss, author:@kepano */
+.embed-strict {
+	--embed-background: transparent;
+	--embed-border-start: 0;
+	--embed-border-left: 0;
+	--embed-padding: 0;
+
+	.markdown-embed-content {
+		--folding-offset: 0px;
+	}
+	.internal-embed .markdown-embed,
+	.markdown-preview-view .markdown-embed,
+	&.markdown-preview-view .markdown-embed {
+		padding: 0;
+	}
+	.markdown-embed-title,
+	.internal-embed .markdown-embed .markdown-embed-title {
+		display: none;
+	}
+	.internal-embed:not([src*="#^"]) .markdown-embed-link {
+		width: 24px;
+		opacity: 0;
+	}
+}
+
+.embed-hide-title {
+	.markdown-embed-title {
+		display: none;
+	}
+}
