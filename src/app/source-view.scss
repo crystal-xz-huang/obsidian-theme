@@ -1,0 +1,40 @@
+/*
+    Typography
+    WIP. Loosely following github markdown styles, but will change over time
+    https://github.com/replete/obsidian-minimal-theme-css-snippets
+*/
+
+/* Markdown source view (not live preview) */
+.markdown-source-view:not(.is-live-preview) {
+	/* Set source view to monospace font */
+  --font-text: var(--font-monospace);
+	// font-family:
+	// 	JetBrains Mono,
+	// 	Menlo,
+	// 	Monaco,
+	// 	"Courier New",
+	// 	monospace;
+
+	/* Reset header font sizes */
+	.cm-header {
+		font-size: 1rem;
+		font-variant: normal;
+	}
+
+	/* Fix footnote indent */
+	.HyperMD-footnote {
+		font-size: inherit;
+		padding-left: 0;
+		text-indent: 0;
+	}
+
+	.cm-inline-code {
+		font-size: inherit;
+	}
+
+	/* Fix heading font-size */
+	.cm-line[class*="HyperMD-header-"] {
+		font-size: inherit;
+		line-height: inherit;
+	}
+}

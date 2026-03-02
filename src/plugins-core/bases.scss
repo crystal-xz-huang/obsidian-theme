@@ -1,0 +1,49 @@
+// Source: https://github.com/kepano/obsidian-minimal/blob/master/src/scss/app/bases.scss
+
+body {
+  --font-adaptive-normal: var(--font-text-size, var(--editor-font-size));
+  --table-text-size: calc(var(--font-adaptive-normal) * 0.875);
+  --bases-table-font-size: calc(var(--font-adaptive-normal) * 0.875);
+}
+
+.bases-view {
+	--bases-table-font-size: var(--table-text-size);
+}
+
+.query-toolbar-menu {
+	.combobox-button {
+		background-color: transparent;
+	}
+}
+
+.block-language-base,
+.bases-embed {
+	.bases-header {
+		.query-toolbar {
+			padding-bottom: 2px;
+			opacity: var(--bases-toolbar-opacity);
+			transition: 0.15s 0.15s opacity;
+			&:hover {
+				opacity: 1;
+				transition: 0s opacity;
+			}
+		}
+	}
+}
+
+.bases-table-header-icon {
+	display: var(--bases-table-header-icon-display);
+}
+
+// CSS Classes
+.base-plain {
+	.bases-header {
+		display: none;
+	}
+}
+
+// Normalize the font size of tags
+.bases-table-cell .multi-select-pill-content {
+  font-size: var(--tag-size);
+  font-family: inherit;
+}

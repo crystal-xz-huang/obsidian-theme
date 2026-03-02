@@ -1,11 +1,15 @@
-/* #region outline */
-@use "./outline.scss";
-/* #endregion outline */
+/* #region bases */
+@use "./bases.scss";
+/* #endregion bases */
+
+/* #region backlinks */
+@use './backlinks.scss';
+/* #endregion backlinks */
 
 /* #region file-explorer */
 @use './file-explorer.scss';
 /* #endregion file-explorer */
 
-/* #region backlinks */
-@use './backlinks.scss';
-/* #endregion backlinks */
+/* #region outline */
+@use "./outline.scss";
+/* #endregion outline */

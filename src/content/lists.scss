@@ -1,0 +1,20 @@
+body {
+  /* Lists */
+	--folding-offset: 32px;
+	--list-edit-offset: 0.5em;
+	--list-indent: 2em;
+	--list-spacing: 0.25rem;
+}
+
+/*
+  Space between list items
+  Source: https://github.com/kepano/obsidian-minimal/blob/master/src/scss/content/lists.scss, author: @kepano
+*/
+.markdown-source-view ol > li,
+.markdown-source-view ul > li,
+.markdown-preview-view ol > li,
+.markdown-preview-view ul > li,
+.mod-cm6 .HyperMD-list-line.cm-line {
+	padding-top: var(--list-spacing);
+	padding-bottom: var(--list-spacing);
+}

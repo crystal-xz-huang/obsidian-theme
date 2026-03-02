@@ -1,3 +1,7 @@
+/* Fonts */
+/* ------------------------ */
+@use './fonts.scss';
+
 /* Obsidian theme variables */
 /* ------------------------ */
 @use "./variables";
@@ -10,14 +14,14 @@
 /* ------------------------ */
 @use "./workspace";
 
-/* Obsidian editor */
-/* ------------------------ */
-@use "./editor";
-
 /* Obsidian content */
 /* ------------------------ */
 @use "./content";
 
-/* Obsidian core plugins */
+/* Core plugins */
 /* ------------------------ */
 @use "./plugins-core";
+
+/* CSS snippets */
+/* ------------------------ */
+@use "./features";
