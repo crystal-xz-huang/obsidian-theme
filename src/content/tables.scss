@@ -4,6 +4,13 @@ body {
 	--embed-block-shadow-hover: none;
 }
 
+// Remove background from every other column in tables
+// Use with --table-column-alt-background to add table header background color
+.cm-html-embed tbody tr > td:nth-child(2n + 2),
+.markdown-rendered tbody tr > td:nth-child(2n + 2) {
+	background: unset;
+}
+
 // Hide empty header cells
 .markdown-preview-view table thead tr th:empty {
 	display: none;

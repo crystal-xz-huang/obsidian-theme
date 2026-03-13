@@ -1,14 +1,17 @@
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
 }
 
 body,
 .theme-light,
 .theme-dark {
-  /* Typography */
-  --font-text-size: 14px;
+	/* Cursor */
+	--cursor: pointer;
+
+	/* Typography */
+	--font-text-size: 14px;
 
 	/* Window frame */
 	--titlebar-background: transparent;
@@ -39,3 +42,12 @@ body,
 	--anim-duration-moderate: calc(320ms * var(--anim-speed-modifier));
 	--anim-duration-slow: calc(480ms * var(--anim-speed-modifier));
 }
+
+// Custom CSS variables
+// body {
+//   --metadata-key-input-color: var(--text-muted);
+//   --metadata-key-input-color-active: var(--text-primary);
+//   --metadata-properties-title-color: var(--text-muted);
+//   --metadata-properties-title-color-hover: var(--text-muted);
+//   --metadata-properties-title-color-collapsed: var(--text-muted);
+// }
