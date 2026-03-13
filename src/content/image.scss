@@ -1,3 +1,17 @@
+/* ===== image ====== */
+
+/*  image center align */
+.img-center-align
+  .print
+  :is(.markdown-preview-view, .markdown-rendered)
+  img:not([class]),
+.img-center-align .markdown-preview-view img:not([class]),
+.img-center-align .markdown-source-view img:not([class]) {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* ====== Images in Tables ====== */
 body :is(.markdown-rendered) table:has(thead > tr:first-child img) {
 	--table-text-size: var(--font-smaller);
