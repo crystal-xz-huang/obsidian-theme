@@ -4,6 +4,10 @@ body {
 	--embed-block-shadow-hover: none;
 }
 
+.markdown-rendered table {
+  margin-block: 0;
+}
+
 // Remove background from every other column in tables
 // Use with --table-column-alt-background to add table header background color
 .cm-html-embed tbody tr > td:nth-child(2n + 2),

@@ -2337,6 +2337,10 @@ body {
   --embed-block-shadow-hover: none;
 }
 
+.markdown-rendered table {
+  margin-block: 0;
+}
+
 .cm-html-embed tbody tr > td:nth-child(2n+2),
 .markdown-rendered tbody tr > td:nth-child(2n+2) {
   background: unset;
