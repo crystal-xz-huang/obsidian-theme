@@ -1,0 +1,47 @@
+/* ───────────────────────────────────────────────────── */
+/* Fold external URLs (Source Mode) */
+/* https://github.com/chrisgrieser/shimmering-focus/blob/main/source/3-markup/markdown.css */
+/* ───────────────────────────────────────────────────── */
+
+body:not(.show-urls)
+	.cm-s-obsidian:not(.is-live-preview)
+	.cm-line:not(.cm-active)
+	.cm-string.cm-url:not(.cm-formatting) {
+	font-size: 0;
+	letter-spacing: 0;
+}
+
+body:not(.show-urls)
+	.cm-s-obsidian:not(.is-live-preview)
+	.cm-line:not(.cm-active)
+	.cm-string.cm-url:not(.cm-formatting)::after {
+	position: relative;
+	top: 2px;
+	font-family: var(--font-icon);
+	font-size: calc(var(--font-text-size) * 0.9);
+	content: "link";
+}
+
+/* so quickly scrolling through a list of links does not expand the URLs */
+body:not(.show-urls)
+	.cm-s-obsidian:not(.is-live-preview)
+	.cm-line.cm-active
+	.cm-string.cm-url:not(.cm-formatting)::after,
+body:not(.show-urls)
+	.cm-s-obsidian:not(.is-live-preview)
+	.cm-line.cm-active
+	.cm-string.cm-url:not(.cm-formatting) {
+	transition-delay: 0.2s;
+}
+
+// Truncate URLs in properties to one-line
+.multi-select-pill-content.external-link {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// Show full URL on hover
+.multi-select-pill-content.external-link:hover {
+  white-space: normal;
+}

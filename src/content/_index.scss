@@ -1,3 +1,12 @@
+
+/* #region blockquotes */
+@use "./blockquote.scss";
+/* #endregion blockquotes */
+
+/* #region callouts */
+@use "./callout.scss";
+/* #endregion callouts */
+
 /* #region code */
 @use "./code.scss";
 /* #endregion code */
@@ -11,12 +20,20 @@
 /* #endregion image */
 
 /* #region lists */
-@use "./lists.scss";
+@use "./list.scss";
 /* #endregion lists */
 
+/* #region links */
+@use "./link.scss";
+/* #endregion links */
+
 /* #region tables */
-@use './tables.scss';
+@use './table.scss';
 /* #endregion tables */
+
+/* #region tags */
+@use './tag.scss';
+/* #endregion tags */
 
 /* #region typography */
 @use './typography.scss';

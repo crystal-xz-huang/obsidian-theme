@@ -1011,8 +1011,6 @@ body.theme-light {
 	--pill-color-hover: var(--color-l-gray-140);
 	--pill-color-remove: var(--color-l-gray-70);
 	--pill-color-remove-hover: var(--color-l-gray-70);
-	--pill-background: rgba(255, 255, 255, 0.4);
-	--pill-background-hover: var(--pill-background);
 	--pill-border-color: color-mix(
 		in srgb,
 		var(--background-modifier-border) 50%,
@@ -1481,8 +1479,6 @@ body.theme-light {
 	--pill-color-hover: var(--color-d-gray-20);
 	--pill-color-remove: var(--color-d-gray-60);
 	--pill-color-remove-hover: var(--color-d-gray-60);
-	--pill-background: rgba(0, 0, 0, 0.2);
-	--pill-background-hover: var(--pill-background);
 	--pill-border-color: color-mix(
 		in srgb,
 		var(--background-modifier-border) 50%,
