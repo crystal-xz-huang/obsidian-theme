@@ -480,9 +480,7 @@ body .internal-embed.is-loaded:not(.image-embed) .markdown-embed-title {
 /* #region image */
 /* ===== image ====== */
 /*  image center align */
-.img-center-align .print :is(.markdown-preview-view, .markdown-rendered) img:not([class]),
-.img-center-align .markdown-preview-view img:not([class]),
-.img-center-align .markdown-source-view img:not([class]) {
+:is(.markdown-preview-view, .markdown-rendered) img:not([class]) {
   display: block;
   margin-left: auto !important;
   margin-right: auto !important;
