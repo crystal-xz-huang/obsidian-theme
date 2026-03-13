@@ -1,0 +1,25 @@
+/* ====== Images in Tables ====== */
+body :is(.markdown-rendered) table:has(thead > tr:first-child img) {
+	--table-text-size: var(--font-smaller);
+	--table-text-color: var(--text-muted);
+	font-style: italic;
+
+	/* make table header background white */
+	thead > tr:first-child th {
+		background-image: none;
+		background: var(--background-primary);
+		/* padding: 0; */
+		margin: 0;
+	}
+
+	tbody > tr:first-child mjx-container:not([style]) {
+		color: var(--text-muted);
+	}
+
+	/* center image */
+	thead > tr:first-child img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

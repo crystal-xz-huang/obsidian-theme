@@ -6,6 +6,10 @@
 @use "./embed.scss";
 /* #endregion embed */
 
+/* #region image */
+@use "./image.scss";
+/* #endregion image */
+
 /* #region lists */
 @use "./lists.scss";
 /* #endregion lists */
@@ -13,3 +17,7 @@
 /* #region tables */
 @use './tables.scss';
 /* #endregion tables */
+
+/* #region typography */
+@use './typography.scss';
+/* #endregion typography */

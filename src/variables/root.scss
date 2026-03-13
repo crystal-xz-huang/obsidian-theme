@@ -7,6 +7,9 @@ body {
 body,
 .theme-light,
 .theme-dark {
+  /* Typography */
+  --font-text-size: 14px;
+
 	/* Window frame */
 	--titlebar-background: transparent;
 	--titlebar-background-focused: transparent;
