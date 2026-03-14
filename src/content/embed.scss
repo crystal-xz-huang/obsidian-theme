@@ -88,7 +88,6 @@ body:not(.full-width-media-off) .workspace-leaf-content[data-type="markdown"] {
 	img:not([width], .cm-widgetBuffer, .link-favicon, .emoji, [alt="banner"]),
 	iframe,
 	video {
-		width: 100%;
 		border-radius: var(--media-radius);
 	}
 }
