@@ -41,13 +41,7 @@ body,
 	--anim-duration-fast: calc(160ms * var(--anim-speed-modifier));
 	--anim-duration-moderate: calc(320ms * var(--anim-speed-modifier));
 	--anim-duration-slow: calc(480ms * var(--anim-speed-modifier));
-}
 
-// Custom CSS variables
-// body {
-//   --metadata-key-input-color: var(--text-muted);
-//   --metadata-key-input-color-active: var(--text-primary);
-//   --metadata-properties-title-color: var(--text-muted);
-//   --metadata-properties-title-color-hover: var(--text-muted);
-//   --metadata-properties-title-color-collapsed: var(--text-muted);
-// }
+  /* Media */
+  --media-radius: var(--radius-s);
+}

@@ -1,0 +1,85 @@
+body {
+  // --blockquote-background-color: var(--background-primary-alt);
+  --blockquote-border-color: var(--background-modifier-border);
+	--blockquote-border-thickness: var(--size-2-2);
+	--blockquote-radius: var(--size-2-3);
+
+	// Adapt headings
+	.markdown-rendered blockquote {
+		--h1-size: var(--font-text-size);
+		--h2-size: var(--font-text-size);
+		--h3-size: var(--font-text-size);
+		--h4-size: var(--font-text-size);
+		--h5-size: var(--font-text-size);
+		--h6-size: var(--font-text-size);
+		--h1-line-height: var(--line-height-normal);
+		--h2-line-height: var(--line-height-normal);
+		--h3-line-height: var(--line-height-normal);
+		--h4-line-height: var(--line-height-normal);
+		--h5-line-height: var(--line-height-normal);
+		--h6-line-height: var(--line-height-normal);
+		border: none;
+		border-radius: var(--blockquote-radius);
+		position: relative;
+		margin-block: var(--size-4-3);
+		padding-block: var(--size-2-3);
+
+		:is(p, h1, h2, h3, h4, h5, h6) {
+			padding-left: var(--blockquote-border-thickness);
+			padding-right: var(--size-4-3);
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: var(--size-4-2);
+			inset-block: var(--size-4-2);
+			border-radius: var(--blockquote-radius);
+			width: var(--blockquote-border-thickness);
+			background-color: var(--blockquote-border-color);
+		}
+
+		blockquote {
+			box-shadow: none;
+			margin-inline-end: var(--size-4-3) !important;
+		}
+
+		.HyperMD-quote {
+			border: solid var(--blockquote-border-color);
+			border-width: 0 var(--size-4-2) 0 var(--size-4-2);
+			&::before {
+				width: 0 !important;
+			}
+		}
+
+		:is(
+			.HyperMD-quote:first-child,
+			.cm-sizer > div > div > *:not(.HyperMD-quote) + .HyperMD-quote
+		) {
+			border-top-width: var(--size-4-2);
+			border-start-start-radius: var(--blockquote-border-thickness);
+			border-start-end-radius: var(--blockquote-border-thickness);
+			&::before {
+				border-start-start-radius: var(--blockquote-border-thickness);
+				border-start-end-radius: var(--blockquote-border-thickness);
+			}
+		}
+
+		:is(
+			.HyperMD-quote:last-child,
+			.cm-sizer > div > div > .HyperMD-quote:has(+ *:not(.HyperMD-quote))
+		) {
+			border-bottom-width: var(--size-4-2);
+			border-end-start-radius: var(--blockquote-border-thickness);
+			border-end-end-radius: var(--blockquote-border-thickness);
+			&::before {
+				border-end-start-radius: var(--blockquote-border-thickness);
+				border-end-end-radius: var(--blockquote-border-thickness);
+			}
+		}
+	}
+}
+
+.markdown-preview-view {
+  --blockquote-background-color:  var(--background-primary-alt);
+}

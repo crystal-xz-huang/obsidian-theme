@@ -7,17 +7,19 @@
 /* Markdown source view (not live preview) */
 .markdown-source-view:not(.is-live-preview) {
 	/* Set source view to monospace font */
-  --font-text: var(--font-monospace);
-	// font-family:
-	// 	JetBrains Mono,
-	// 	Menlo,
-	// 	Monaco,
-	// 	"Courier New",
-	// 	monospace;
+	--font-text: var(--font-monospace);
+	--font-text-size: 14px;
+
+	--h1-letter-spacing: normal;
+	--h2-letter-spacing: normal;
+	--h3-letter-spacing: normal;
+	--h4-letter-spacing: normal;
+	--h5-letter-spacing: normal;
+	--h6-letter-spacing: normal;
 
 	/* Reset header font sizes */
 	.cm-header {
-		font-size: 1rem;
+		font-size: 1em;
 		font-variant: normal;
 	}
 
@@ -29,7 +31,7 @@
 	}
 
 	.cm-inline-code {
-		font-size: inherit;
+		font-size: .9em !important;
 	}
 
 	/* Fix heading font-size */

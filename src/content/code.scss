@@ -1,17 +1,46 @@
 // Code block
 // from https://github.com/aaaaalexis/obsidian-baseline/blob/main/src/editor/editor.scss, author:@aaaaalexis
 body {
+	--inline-code: var(--color-red);
+	--code-background: var(--background-primary-alt);
+	--code-function: var(--color-blue);
+	--code-important: var(--color-purple);
+	--code-keyword: var(--color-purple);
+	--code-property: var(--color-yellow);
+	--code-punctuation: var(--color-base-60);
+	--code-operator: var(--code-punctuation);
+	--code-class: var(--color-orange);
+	--code-string: var(--color-green);
+	--code-tag: var(--color-red);
+	--code-value: var(--color-cyan);
+	--code-comment: var(--text-faint);
+	--code-variable: var(--color-yellow);
+	--code-normal: var(--text-muted);
+	--code-radius: var(--radius-s);
+	--code-border-color: var(--background-modifier-border);
 	--code-border-width: 1px;
 	--code-size: var(--font-smallest);
+}
+
+.theme-light {
+	--inline-code-bg: var(--color-l-gray-10);
+}
+
+.theme-dark {
+	--inline-code-bg: var(--color-d-gray-130);
 }
 
 .markdown-rendered pre {
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
+
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting),
 .markdown-rendered code {
 	-electron-corner-smoothing: var(--corner-smoothing);
+	border-radius: var(--code-radius);
 	padding: 2px 4px;
 }
+
 .markdown-rendered pre code {
 	white-space: var(--code-white-space);
 }
@@ -21,12 +50,202 @@ body {
 	--code-white-space: pre;
 }
 
+code,
+.cm-s-obsidian span.cm-inline-code {
+	font-family: var(--font-monospace);
+	font-size: var(--code-size) !important;
+}
+
+.cm-hmd-codeblock.cm-formatting,
+.markdown-rendered code {
+	color: var(--inline-code);
+}
+
+.markdown-preview-view pre code {
+	color: var(--code-normal);
+}
+
+.markdown-source-view.mod-cm6 .code-block-flair {
+	color: var(--inline-code);
+	font-family: var(--font-monospace);
+	font-weight: 550;
+}
+
+/* Inline code */
+.cm-html-embed.cm-embed-block pre code,
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting),
+.cm-s-obsidian code:not(pre code),
+.markdown-rendered code:not(pre code) {
+	color: var(--inline-code) !important;
+	background: var(--inline-code-bg);
+}
+
+body .cm-s-obsidian span.cm-inline-code {
+	--code-normal: var(--inline-code);
+	color: var(--inline-code) !important;
+	background: var(--inline-code-bg);
+}
+
+.cm-inline-code * {
+	color: var(--inline-code) !important;
+}
+
 // Keyboard shortcuts
 kbd {
-	box-shadow: var(--shadow-tactile);
 	border: 1px solid var(--background-modifier-border);
 	background-color: var(--background-secondary);
 	padding: var(--tag-padding-y) var(--tag-padding-x);
 	font-family: var(--font-text);
 	color: var(--text-muted);
+}
+
+// Source view
+:is(.cm-tag, .cm-attribute, .cm-string:not(.cm-url)) {
+	font-family: var(--font-monospace);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .token.script {
+	color: var(--code-normal);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .token.imports {
+	color: var(--code-variable);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.builtin, .regex, .keyword) {
+	font-style: italic;
+	color: var(--code-important);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.selector, .inserted, .char, .attr-value) {
+	color: var(--color-green);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.class-name, .maybe-class-name, .color) {
+	color: var(--code-class);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(
+		.property-access,
+		.attr-name,
+		.annotation,
+		.key,
+		.entity,
+		.parameter,
+		.url
+	) {
+	color: var(--code-variable);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.comment, .prolog, .doctype, .cdata) {
+	color: var(--code-comment);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-tag {
+	color: var(--code-tag);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+	color: var(--code-punctuation);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-number {
+	color: var(--code-value);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(
+		.cm-qualifier,
+		.cm-string:not(.cm-url),
+		.cm-string-2,
+		.cm-meta:not(.cm-hashtag)
+	) {
+	color: var(--code-string);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(
+		.cm-def,
+		.cm-property,
+		.cm-number + .cm-variable,
+		.cm-attribute,
+		.cm-atom
+	) {
+	color: var(--code-property);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(.cm-type, .cm-builtin) {
+	color: var(--code-keyword);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-type {
+	font-weight: 550;
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-keyword {
+	font-style: italic;
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable {
+	color: var(--code-function);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable-2 {
+	color: var(--code-value);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable-3 {
+	filter: hue-rotate(40deg);
+}
+
+.cm-tag {
+	color: var(--code-tag);
+}
+
+:is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+	color: var(--code-punctuation);
+}
+
+.cm-number {
+	color: var(--code-value);
+}
+
+:is(
+	.cm-qualifier,
+	.cm-string:not(.cm-url),
+	.cm-string-2,
+	.cm-meta:not(.cm-hashtag)
+) {
+	color: var(--code-string);
+}
+
+:is(.cm-def, .cm-property, .cm-number + .cm-variable, .cm-attribute, .cm-atom) {
+	color: var(--code-property);
+}
+
+:is(.cm-type, .cm-builtin) {
+	color: var(--code-keyword);
+}
+
+.cm-type {
+	font-weight: 550;
+}
+
+.cm-keyword {
+	font-style: italic;
+}
+
+.cm-variable {
+	color: var(--code-function);
+}
+
+.cm-variable-2 {
+	color: var(--code-value);
+}
+
+.cm-variable-3 {
+	filter: hue-rotate(40deg);
 }

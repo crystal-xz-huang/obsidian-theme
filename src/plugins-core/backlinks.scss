@@ -4,31 +4,39 @@
 .outgoing-link-pane > .tree-item-self,
 .backlink-pane > .tree-item-self:hover,
 .backlink-pane > .tree-item-self {
-  color:var(--text-muted);
-  text-transform:uppercase;
-  letter-spacing:0.05em;
-  font-size:var(--font-ui-smaller);
-  font-weight:500;
+  --nav-heading-weight: 600;
+	color: var(--text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: var(--font-ui-smaller);
+	font-weight: 600;
 }
 
 /* Backlinks in Preview */
 /* from https://github.com/kepano/obsidian-minimal/blob/master/src/scss/content/preview-backlinks.scss, author:@kepano */
 
-.is-mobile .workspace-leaf-content:not([data-type='search']) .workspace-leaf-content[data-type='markdown'] .nav-buttons-container {
-  border-bottom:none;
-  padding-top:5px;
+.is-mobile
+	.workspace-leaf-content:not([data-type="search"])
+	.workspace-leaf-content[data-type="markdown"]
+	.nav-buttons-container {
+	border-bottom: none;
+	padding-top: 5px;
 }
-.is-mobile .mod-root .workspace-leaf-content[data-type='markdown'] .search-input-container {
-  width:calc(100% - 160px);
+.is-mobile
+	.mod-root
+	.workspace-leaf-content[data-type="markdown"]
+	.search-input-container {
+	width: calc(100% - 160px);
 }
 
 .embedded-backlinks {
 	.backlink-pane > .tree-item-self:hover,
 	.backlink-pane > .tree-item-self {
-		text-transform: none;
-		color: var(--text-normal);
-		font-size: var(--font-text-size);
-		font-weight: 500;
-		letter-spacing: unset;
+    --nav-heading-weight: 600;
+		color: var(--text-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-size: var(--font-ui-smaller);
+		font-weight: 600;
 	}
 }

@@ -1,31 +1,30 @@
 /* ---------------------------------------------------------------
   Typography
 --------------------------------------------------------------- */
-// .theme-light {
-//   --italic-color: color(display-p3 0.15 0.5 0.37);
-//   --italic-color: hsla(208, 83%, 41%, 1);
-//   --bold-color: hsla(360, 74%, 54%, 1);
-//   --bold-color: #c8007fbf;
-//   --underline-color: hsla(42, 100%, 62%, 1);
-// }
+body {
+  	/* Emphasis */
+	--bold-color: var(--color-red);
+	--italic-color: var(--color-purple);
+	--underline-color: var(--text-normal);
+	--underline-decoration-color: color-mix(
+		in srgb,
+		currentColor var(--link-decoration-opacity),
+		transparent
+	);
+	--strikethrough-color: var(--color-gray);
+	--bold-italic-color: var(--color-d-gray-10);
+	--bold-italic-strikethrough-color: var(--color-d-gray-40);
+}
 
-// .theme-dark {
-//   --italic-color: rgb(159, 234, 249, 1);
-//   --bold-color: hsla(360, 100%, 76%, 1);
-//   --underline-color: hsla(162, 85%, 35%, 1);
-// }
 
 /* ====== Bold ====== */
-// body {
-//   --bold-weight: var(--font-semibold);
-//   --bold-color: var(--color-red);
-// }
 
-// b,
-// b > u,
-// .cm-s-obsidian span.cm-quote.cm-strong {
-//   color: var(--bold-color);
-// }
+b,
+b > u,
+strong,
+.cm-strong {
+  color: var(--bold-color);
+}
 
 /* ====== Underline ====== */
 body,
