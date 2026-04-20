@@ -1865,6 +1865,12 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf-content > .view-content > .no
 /* ------------------------ */
 /* #region button */
 /* #endregion button */
+/* #region checkbox */
+.checkbox-container.is-enabled {
+  background-color: var(--checkbox-color);
+}
+
+/* #endregion checkbox */
 /* #region modal */
 /* Modals */
 .modal-button-container .mod-checkbox {
