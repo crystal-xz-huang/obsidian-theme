@@ -22,3 +22,31 @@
 .callout-icon {
 	margin-right: 2px;
 }
+
+// Custom callouts
+.callout[data-callout~="answer"] {
+  --callout-icon: lucide-circle-check;
+  --callout-color: var(--color-green-rgb);
+}
+
+.callout[data-callout~="code"] {
+  --callout-icon: lucide-code-xml;
+  --callout-color: var(--color-purple-rgb);
+}
+
+.callout[data-callout~="feature"],
+.callout[data-callout~="release"],
+.callout[data-callout~="version"] {
+  --callout-icon: lucide-rocket;
+  --callout-color: var(--color-pink-rgb);
+}
+
+.callout[data-callout~="idea"] {
+  --callout-icon: lucide-lightbulb;
+  --callout-color: var(--color-yellow-rgb);
+}
+
+.callout[data-callout~="note"] {
+  --callout-icon: lucide-sticky-note;
+  --callout-color: var(--color-blue-rgb);
+}
