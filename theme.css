@@ -2983,6 +2983,27 @@ body {
 }
 
 /* #endregion file-explorer */
+/* #region graph */
+/*────────── Core Plugin: Graph ──────────*/
+body {
+  /* Graph */
+  --graph-node: var(--color-blue);
+  --graph-node-unresolved: var(--color-yellow);
+  --graph-node-unresolved-opacity: 1;
+  --graph-node-tag: var(--color-red);
+  --graph-node-attachment: var(--color-green);
+  --graph-node-focused: var(--color-pink);
+  --graph-node-highlight-fill: var(--color-pink);
+}
+
+.graph-view.color-fill-unresolved {
+  opacity: var(--graph-node-unresolved-opacity);
+}
+.graph-view.color-fill-highlight {
+  color: var(--graph-node-highlight-fill);
+}
+
+/* #endregion graph */
 /* #region outline */
 /* Outline Pane */
 /* reference https://github.com/subframe7536/obsidian-theme-maple, author:@subframe7536 */
