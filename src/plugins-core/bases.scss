@@ -48,4 +48,19 @@ body {
   font-family: inherit;
 }
 
+// Ensure that the content of the table cells does not overflow and is scrollable if it exceeds the cell size
+.bases-table-cell {
+	line-height: 1.2em;
+	overflow: scroll;
+}
 
+// Make each item appear on a new line and add a gap between them
+.bases-table-cell .value-list-gap::before {
+	content: ", ";
+}
+
+.bases-table-cell .value-list-element > * {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

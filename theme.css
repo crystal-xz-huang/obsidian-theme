@@ -3470,6 +3470,21 @@ body {
   font-family: inherit;
 }
 
+.bases-table-cell {
+  line-height: 1.2em;
+  overflow: scroll;
+}
+
+.bases-table-cell .value-list-gap::before {
+  content: ", ";
+}
+
+.bases-table-cell .value-list-element > * {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* #endregion bases */
 /* #region backlinks */
 /* Backlink pane */
