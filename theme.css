@@ -818,9 +818,6 @@ body.theme-light {
   --h6-border-right-color: var(--background-modifier-border);
   --h6-border-bottom-color: var(--background-modifier-border);
   --h6-border-left-color: var(--background-modifier-border);
-  /* Horizontal rules */
-  --hr-color: var(--background-modifier-border);
-  --hr-thickness: 4px;
   /* Highlight */
   --normal-highlight-color: var(--text-normal);
   --normal-highlight-bg: var(--color-l-alpha-yellow);
@@ -2839,6 +2836,21 @@ body:not(.block-width-off) .cm-content .image-embed {
 }
 
 /* #endregion embed */
+/* #region footnote */
+/* #endregion footnote */
+/* #region horizontal rule */
+body {
+  /* Horizontal rules */
+  --hr-color: var(--background-modifier-border);
+  --hr-thickness: 4px;
+}
+
+.markdown-rendered hr {
+  margin-block-start: 2.4rem !important;
+  margin-block-end: 2.4rem !important;
+}
+
+/* #endregion horizontal rule */
 /* #region image */
 /* ===== image ====== */
 /*  image center align */

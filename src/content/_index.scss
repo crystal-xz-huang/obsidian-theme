@@ -15,6 +15,14 @@
 @use "./embed.scss";
 /* #endregion embed */
 
+/* #region footnote */
+@use "./footnote.scss";
+/* #endregion footnote */
+
+/* #region horizontal rule */
+@use "./hr.scss";
+/* #endregion horizontal rule */
+
 /* #region image */
 @use "./image.scss";
 /* #endregion image */

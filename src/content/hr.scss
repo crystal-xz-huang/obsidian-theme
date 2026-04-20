@@ -1,0 +1,10 @@
+body {
+	/* Horizontal rules */
+	--hr-color: var(--background-modifier-border);
+	--hr-thickness: 4px;
+}
+
+.markdown-rendered hr {
+  margin-block-start: 2.4rem !important;
+  margin-block-end: 2.4rem !important;
+}
