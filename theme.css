@@ -1607,58 +1607,59 @@ body .status-bar {
 /* !Chrome >= 121 no longer support `-webkit-scrollbar-*`, no effect currently */
 /* usage of `@property`: https://stackoverflow.com/a/74050413/20058211 */
 /* usage of `-webkit-text-fill-color`: https://stackoverflow.com/a/46304690/20058211 */
-body.scrollbar-enable:not(.is-mobile) .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
-  scrollbar-gutter: stable;
-}
-body.scrollbar-enable:not(.is-mobile).scrollbar-hover-accent {
+body:not(.is-mobile) {
   --setting-scrollbar-hover: hsla(var(--color-accent-hsl), 40%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-hover-expand ::-webkit-scrollbar-thumb:hover, body.scrollbar-enable:not(.is-mobile).scrollbar-hover-expand ::-webkit-scrollbar-thumb:active {
+body:not(.is-mobile) .mod-settings :is(.vertical-tab-content, .vertical-tab-header) {
+  scrollbar-gutter: stable;
+}
+body:not(.is-mobile).scrollbar-hover-expand ::-webkit-scrollbar-thumb:hover, body:not(.is-mobile).scrollbar-hover-expand ::-webkit-scrollbar-thumb:active {
   border-width: var(--size-2-1) !important;
 }
-body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar {
+body:not(.is-mobile) ::-webkit-scrollbar {
   width: 12px !important;
   height: 12px !important;
   background-color: transparent !important;
 }
-body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-track {
+body:not(.is-mobile) ::-webkit-scrollbar-track {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb {
+body:not(.is-mobile) ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   border-radius: 8px !important;
   border: 2.8px solid transparent !important;
   background-color: var(--scrollbar-color) !important;
 }
-body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb:hover {
+body:not(.is-mobile) ::-webkit-scrollbar-thumb:hover {
   --scrollbar-color: var(--setting-scrollbar-hover);
 }
-body.scrollbar-enable:not(.is-mobile) ::-webkit-scrollbar-thumb:active {
+body:not(.is-mobile) ::-webkit-scrollbar-thumb:active {
   --scrollbar-color: hsla(var(--color-accent-hsl), 64%);
 }
-body.scrollbar-enable:not(.is-mobile) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code) {
+body:not(.is-mobile) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code) {
   transition: var(--scrollbar-transition, none);
 }
-body.scrollbar-enable:not(.is-mobile) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code):hover {
+body:not(.is-mobile) :is(.vertical-tab-header, .vertical-tab-content, .nav-files-container, .workspace-leaf-content .view-content, .search-result-container, .git-view-body, .suggestion-container .suggestion, .prompt-results, .community-modal-search-results-wrapper, .community-modal-info, .modal:not(.mod-settings, .mod-community-theme, .mod-community-plugin), .tag-container, .backlink-pane, .markdown-source-view .cm-scroller, .markdown-preview-view, .pdf-thumbnail-view, .pdf-viewer-container, .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container, .markdown-embed-content .markdown-rendered, pre code):hover {
   --scrollbar-color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable {
+body:not(.is-mobile) {
+  --animation: 250ms var(--anim-motion-smooth);
   --scrollbar-transition: --scrollbar-color var(--animation);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre) {
+body:not(.is-mobile) :is(textarea:not(.excalidraw-wysiwyg), pre) {
   color: transparent;
   transition: var(--animation);
   transition-property: color, border-color;
   -webkit-text-fill-color: var(--text-normal);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre):hover {
+body:not(.is-mobile) :is(textarea:not(.excalidraw-wysiwyg), pre):hover {
   color: hsla(var(--color-accent-hsl), 24%);
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre) :not(code) {
+body:not(.is-mobile) :is(textarea:not(.excalidraw-wysiwyg), pre) :not(code) {
   -webkit-text-fill-color: initial;
 }
-body.scrollbar-enable:not(.is-mobile).scrollbar-movein-animation-enable :is(textarea:not(.excalidraw-wysiwyg), pre)::-webkit-scrollbar-thumb {
+body:not(.is-mobile) :is(textarea:not(.excalidraw-wysiwyg), pre)::-webkit-scrollbar-thumb {
   box-shadow: 0 0 0 10px inset;
   border-width: 3.2px;
   background-clip: content-box;
