@@ -1,39 +1,47 @@
 body {
-	--link-color-rgb: var(--setting-link-internal-color, var(--color-cyan-rgb));
+  --link-decoration: none;
+	--link-decoration-thickness: var(--underline-thickness, 1.2px);
+	--link-color-rgb: var(--color-cyan-rgb);
 	--link-external-color-rgb: var(--color-yellow-rgb);
 	--link-color: rgba(var(--link-color-rgb), var(--color-opacity));
 	--link-color-hover: var(--link-color);
-	--link-color-underline: var(
-		--setting-link-internal-color-underline,
-		var(--link-color)
-	);
 	--link-external-color: rgba(
 		var(--link-external-color-rgb),
 		var(--color-opacity)
 	);
 	--link-external-color-hover: var(--link-external-color);
-	--link-external-color-underline: var(
-		--setting-link-external-color-underline,
-		var(--link-external-color)
-	);
 	--link-unresolved-color: rgba(
 		var(--link-color-rgb),
 		calc(var(--color-opacity) * 0.85)
 	);
 	--link-unresolved-decoration-color: var(--link-unresolved-color);
+	--link-unresolved-decoration-style: wavy;
+	// Custom
 	--link-footnote: var(--color-purple);
 	--link-text-size: var(--font-text-size);
 }
 
-/* remove external link icon */
-.external-link {
-	padding-right: 0;
-	background-image: none;
+// Footnote links
+.cm-hmd-footnote .cm-underline {
+	color: var(--link-footnote) !important;
+	font-size: var(--footnote-size);
+	text-decoration-color: var(--link-footnote) !important;
+	pointer-events: none;
 }
 
+.is-unresolved {
+	transition: color var(--animation);
+
+	&:hover {
+		--link-color-hover: rgba(var(--link-color-rgb), 0.6) !important;
+	}
+}
+
+// External links
 body .cm-s-obsidian .cm-url {
 	text-decoration: none;
 }
+
 span:is(
 		.cm-url,
 		.cm-link,
@@ -41,4 +49,68 @@ span:is(
 		.cm-formatting-link.cm-url
 	):hover {
 	text-decoration: none;
+}
+
+// Remove underline for internal links
+
+// Link icons for internal links
+:is(.markdown-source-view, .markdown-preview-view)
+	a.internal-link:not(.is-unresolved),
+.cm-hmd-internal-link > .cm-underline {
+	padding-inline-end: var(--size-2-1);
+	&::before {
+		content: "";
+		display: inline-block;
+		transform: translateY(var(--size-2-1));
+		margin-inline: var(--size-2-1);
+		-webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4M10 9H8m8 4H8m8 4H8'/></g></svg>")
+			no-repeat;
+		-webkit-mask-size: 100% 100%;
+		background-color: currentColor;
+		color: inherit;
+		width: calc(var(--link-text-size) * 0.9);
+		height: calc(var(--link-text-size) * 0.9);
+	}
+}
+.markdown-preview-view {
+	:is(
+		.el-pre a.internal-link:not(.is-unresolved),
+		a.external-link:has(> code)
+	)::before {
+		content: none !important;
+	}
+}
+
+// Link icons for external links
+:is(
+	:is(.markdown-source-view, .markdown-preview-view)
+		a.external-link:not(.is-resolved),
+	a.external-link:not(.is-resolved) code,
+	:is(.cm-link:not(.cm-hmd-footnote, .cm-escape), .cm-url) > .cm-underline
+):not(.cm-escape + .cm-link .cm-underline) {
+	padding-inline-end: var(--size-2-1);
+	&::before {
+		content: "";
+		display: inline-block;
+		transform: translateY(var(--size-2-1));
+		margin-inline: var(--size-2-1);
+		-webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><g fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/></g></svg>")
+			no-repeat;
+		-webkit-mask-size: 100% 100%;
+		background-color: currentColor;
+		color: inherit;
+		width: calc(var(--link-text-size) * 0.85);
+		height: calc(var(--link-text-size) * 0.85);
+	}
+}
+
+/* Remove default external link icon */
+a.external-link {
+	background-image: none;
+	background-size: unset;
+	padding-right: 0;
+}
+
+span.external-link {
+	display: none;
 }
