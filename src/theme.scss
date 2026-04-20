@@ -14,13 +14,17 @@
 /* ------------------------ */
 @use "./workspace";
 
-/* Editor */
+/* Obsidian components */
 /* ------------------------ */
-@use "./editor";
+@use "./components";
 
 /* Obsidian content */
 /* ------------------------ */
 @use "./content";
+
+/* Editor */
+/* ------------------------ */
+@use "./editor";
 
 /* Core plugins */
 /* ------------------------ */
