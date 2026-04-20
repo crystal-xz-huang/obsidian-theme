@@ -1908,6 +1908,518 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf-content > .view-content > .no
 }
 
 /* #endregion modal */
+/* #region tabs */
+/*────────── Tabs ──────────*/
+body {
+  --editor-border-color: var(--background-modifier-border);
+  --editor-border-radius: var(--radius-l);
+  --editor-border-width: 1px;
+  /* Button */
+  --button-inset-shadow-size: 2px;
+  --button-axis-offset: 2px;
+  --button-anim: var(--anim-duration-fast) var(--anim-motion-jumpy);
+  --close-button-radius: var(--radius-l);
+  /* Tab */
+  --tab-status-radius: var(--radius-s);
+  --tab-background-active: var(--background-primary);
+  --tab-text-color: var(--text-faint);
+  --tab-text-color-active: var(--text-muted);
+  --tab-text-color-focused: var(--text-muted);
+  --tab-text-color-focused-active: var(--text-muted);
+  --tab-text-color-focused-highlighted: var(--text-accent);
+  --tab-text-color-focused-active-current: var(--text-normal);
+  --tab-container-background: var(--background-secondary);
+  --tab-divider-color: var(--background-modifier-border-hover);
+  --tab-outline-color: var(--color-l-gray-70);
+  --tab-bg: transparent;
+  --tab-active-bg: var(--background-primary);
+  --tab-active-shadow:
+  	inset 0px 1px 0px 0px rgba(255, 255, 255, 1),
+  	inset 0px calc(-1 * var(--button-inset-shadow-size)) 0px 1px
+  		rgba(0, 0, 0, 0.09),
+  	0px 1px 2px -0.1px rgba(0, 0, 0, 0.15);
+  --tab-outline-color: transparent;
+  --tab-stacked-shadow:
+  	-2.9px 0 10.5px -6.2px rgba(0, 0, 0, 0.08),
+  	-6.2px 0 3.6px -5.2px rgba(0, 0, 0, 0.04),
+  	-9.4px 0 8.4px -4.1px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  --tab-header-container-padding: 0 var(--editor-border-radius)
+  	var(--size-4-1) var(--editor-border-radius);
+  --tab-header-container-border-bottom: none;
+  --tab-header-container-transition: padding-bottom none;
+  --tab-header-container-inner-margin: default;
+  --tab-header-container-inner-padding: var(--button-axis-offset);
+  --tab-curves-display: none;
+  --tab-z-index: 1;
+}
+
+body:not(.is-phone) .mod-root .workspace-tab-header-container {
+  padding: var(--tab-header-container-padding);
+  border-bottom: var(--tab-header-container-border-bottom);
+  transition: var(--tab-header-container-transition);
+}
+body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
+  padding-bottom: var(--tab-header-container-inner-padding);
+  margin-bottom: var(--tab-header-container-inner-margin);
+  z-index: var(--tab-z-index);
+}
+
+.mod-left-split .workspace-tab-header,
+.mod-right-split .workspace-tab-header {
+  border-radius: var(--radius-m);
+}
+.mod-left-split .workspace-tab-header-container-inner,
+.mod-right-split .workspace-tab-header-container-inner {
+  padding-bottom: 6px;
+}
+.mod-left-split .workspace-tab-header.is-active,
+.mod-right-split .workspace-tab-header.is-active {
+  background: var(--tab-active-bg);
+  box-shadow: var(--tab-active-shadow);
+  transition: border, box-shadow, transform var(--button-anim);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1),
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) {
+  border: 1px solid var(--alternating-color-1);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-icon,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-1);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-title,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-1);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-1);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:hover,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:hover,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:hover,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-1);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:active,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:active,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:active,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-1-hover-active);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2),
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) {
+  border: 1px solid var(--alternating-color-2);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-icon,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-2);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-title,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-2);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-2);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:hover,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:hover,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:hover,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-2);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:active,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:active,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:active,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-2-hover-active);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3),
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) {
+  border: 1px solid var(--alternating-color-3);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-icon,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-3);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-title,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-3);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-3);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:hover,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:hover,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:hover,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-3);
+}
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:active,
+.mod-left-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:active,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:active,
+.mod-right-split .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-3-hover-active);
+}
+.mod-left-split .workspace-tab-header:not(.is-active),
+.mod-right-split .workspace-tab-header:not(.is-active) {
+  color: var(--icon-color);
+  border: 1px solid transparent;
+  transition: border, border-color, box-shadow, transform var(--button-anim);
+}
+.mod-left-split .workspace-tab-header:not(.is-active):hover,
+.mod-right-split .workspace-tab-header:not(.is-active):hover {
+  color: var(--icon-color-hover);
+  border-color: transparent;
+  background: var(--tab-bg);
+  transform: translateY(calc(-1 * var(--button-axis-offset)));
+  cursor: var(--cursor);
+}
+.mod-left-split .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner,
+.mod-right-split .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
+  background: transparent;
+}
+.mod-left-split .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title,
+.mod-right-split .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title {
+  color: var(--icon-color-hover);
+}
+.mod-left-split .workspace-tab-header:not(.is-active):active,
+.mod-right-split .workspace-tab-header:not(.is-active):active {
+  color: var(--icon-color-hover);
+  border-color: transparent;
+  background: var(--tab-bg);
+  transform: translateY(var(--button-axis-offset));
+}
+.mod-left-split .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner-title,
+.mod-right-split .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner-title {
+  color: var(--icon-color-hover);
+}
+
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
+  --tab-radius-active: var(--radius-m);
+}
+.workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
+  padding-bottom: 0px;
+  margin-inline-start: -2px;
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active::before, .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active::after {
+  display: var(--tab-curves-display);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active {
+  background: var(--tab-active-bg);
+  box-shadow: var(--tab-active-shadow);
+  transition: border, box-shadow, transform var(--button-anim);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) {
+  border: 1px solid var(--alternating-color-1);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-1);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-1);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-1);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:hover,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-1);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:active,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-1-hover-active);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) {
+  border: 1px solid var(--alternating-color-2);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-2);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-2);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-2);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:hover,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-2);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:active,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-2-hover-active);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) {
+  border: 1px solid var(--alternating-color-3);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-3);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-3);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-3);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:hover,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-3);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:active,
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-3-hover-active);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active) {
+  color: var(--icon-color);
+  border: 1px solid transparent;
+  transition: border, border-color, box-shadow, transform var(--button-anim);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover {
+  color: var(--icon-color-hover);
+  border-color: transparent;
+  background: var(--tab-bg);
+  cursor: var(--cursor);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
+  background: transparent;
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title {
+  color: var(--icon-color-hover);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):active {
+  color: var(--icon-color-hover);
+  border-color: transparent;
+  background: var(--tab-bg);
+  transform: translateY(var(--button-axis-offset));
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner-title {
+  color: var(--icon-color-hover);
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-new-tab {
+  padding-bottom: 0;
+}
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-tab-list {
+  padding-bottom: 0;
+  margin-inline-end: var(--size-4-3);
+}
+
+.mod-root .workspace-tabs.mod-stacked {
+  --tab-stacked-header-width: 40px;
+}
+.mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
+  border-radius: var(--editor-border-radius);
+  border: var(--editor-border-width) solid var(--editor-border-color);
+}
+.mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:first-child {
+  border-top-left-radius: var(--editor-border-radius);
+  border-bottom-left-radius: var(--editor-border-radius);
+}
+.mod-root .workspace-tabs.mod-stacked .workspace-leaf-content {
+  border: unset;
+  border-radius: unset;
+  margin-bottom: unset;
+}
+
+.workspace-tabs.mod-stacked .workspace-tab-header {
+  --tab-radius-active: var(--radius-m);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active {
+  background: var(--tab-active-bg);
+  transition: border, transform var(--button-anim);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) {
+  border-left: 1px solid var(--alternating-color-1);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-1);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-1);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-1);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:hover,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-1);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-inner-close-button:active,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+1) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-1-hover-active);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) {
+  border-left: 1px solid var(--alternating-color-3);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-3);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-3);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-3);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:hover,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-3);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-inner-close-button:active,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+2) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-3-hover-active);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) {
+  border-left: 1px solid var(--alternating-color-2);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-icon {
+  color: var(--alternating-color-2);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-title {
+  color: var(--alternating-color-2);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon {
+  color: var(--alternating-color-2);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:hover,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-2);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-inner-close-button:active,
+.workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n+3) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--alternating-color-2-hover-active);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active) {
+  color: var(--icon-color);
+  transition: border, border-color var(--anim-duration-fast) var(--anim-motion-swing);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active):not(:first-child) {
+  border-left: 1px solid var(--background-modifier-border);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active):hover, .workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active):active {
+  color: var(--icon-color-hover);
+  cursor: var(--cursor);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner, .workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner {
+  background: transparent;
+}
+.workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title, .workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner-title {
+  color: var(--icon-color-hover);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header-new-tab {
+  padding-bottom: var(--size-2-2);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header-tab-list {
+  padding-bottom: var(--size-2-2);
+  margin-inline-end: var(--size-4-3);
+}
+
+.workspace .mod-root .workspace-tabs .workspace-tab-header .workspace-tab-header-inner-close-button {
+  --icon-size: var(--icon-xs);
+  padding: 0;
+  border-radius: var(--close-button-radius);
+  margin-bottom: var(--button-axis-offset);
+  cursor: var(--cursor);
+}
+.is-mobile .workspace .mod-root .workspace-tabs .workspace-tab-header .workspace-tab-header-inner-close-button {
+  --icon-size: var(--icon-s);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header .workspace-tab-header-status-icon {
+  --icon-size: var(--icon-xs);
+  padding: var(--size-2-1) 0;
+  margin-bottom: var(--button-axis-offset);
+  border-radius: var(--tab-status-radius);
+  cursor: var(--cursor);
+}
+.is-mobile .workspace .mod-root .workspace-tabs .workspace-tab-header .workspace-tab-header-status-icon {
+  --icon-size: var(--icon-s);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-close-button,
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active):hover .workspace-tab-header-status-icon {
+  color: var(--icon-color-hover);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active) .workspace-tab-header-inner-close-button,
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active) .workspace-tab-header-status-icon {
+  color: var(--icon-color);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active) .workspace-tab-header-inner-close-button:hover,
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active) .workspace-tab-header-status-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--non-alternating-color);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active) .workspace-tab-header-inner-close-button:active,
+.workspace .mod-root .workspace-tabs .workspace-tab-header:not(.is-active) .workspace-tab-header-status-icon:active {
+  color: var(--text-on-accent);
+  background: var(--non-alternating-color-hover-active);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header-new-tab .clickable-icon {
+  color: var(--icon-color);
+  padding: 0px;
+  border-radius: var(--close-button-radius);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header-new-tab .clickable-icon:hover {
+  color: var(--text-on-accent);
+  background: var(--non-alternating-color);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header-new-tab .clickable-icon:active {
+  color: var(--text-on-accent);
+  background: var(--non-alternating-color-hover-active);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header-tab-list .clickable-icon {
+  color: var(--icon-color);
+  padding: 0px;
+  border-radius: var(--radius-m);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header-tab-list .clickable-icon:hover {
+  color: var(--icon-color-hover);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header-tab-list .clickable-icon:active {
+  color: var(--icon-color-focused);
+}
+.workspace .mod-root .workspace-tabs .workspace-tab-header-tab-list .clickable-icon.has-active-menu {
+  color: var(--icon-color-active);
+}
+
+@media (hover: hover) {
+  .workspace-tab-header-inner,
+  .workspace-drawer-vault-switcher {
+    transition: background-color var(--anim-duration-fast) var(--anim-motion-smooth);
+  }
+}
+/* #endregion tabs */
 /* Obsidian content */
 /* ------------------------ */
 /* #region blockquotes */
