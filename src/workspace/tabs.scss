@@ -1,22 +1,46 @@
 // Minimise tabs in sidepanels
+body {
+  --anim-motion-baseline: cubic-bezier(0.1, 0, 0.1, 1.25);
+}
 
 // Side panels: Compact tabs
-.mod-sidedock.mod-left-split,
-.mod-sidedock.mod-right-split {
-  .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) {
-    height: calc-size(auto, size);
+// .mod-sidedock.mod-left-split,
+// .mod-sidedock.mod-right-split {
+//   .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) {
+//     height: calc-size(auto, size);
 
-    .workspace-tab-header {
-      background-color: var(--background-modifier-hover);
-      height: 4px;
-    }
+//     .workspace-tab-header {
+//       background-color: var(--background-modifier-hover);
+//       height: 4px;
+//     }
 
-    .workspace-tab-header-inner-icon,
-    .workspace-tab-header-inner-title {
-      opacity: 0;
-    }
-  }
+//     .workspace-tab-header-inner-icon,
+//     .workspace-tab-header-inner-title {
+//       opacity: 0;
+//     }
+//   }
+// }
+
+// All panels
+body:not(.is-phone) .workspace-tab-header-container {
+  transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+  background-color: transparent;
+  border-bottom: none;
 }
+
+.sidebar-toggle-button {
+  height: 100%;
+  padding-bottom: 8px;
+  align-items: center;
+}
+.sidebar-toggle-button .clickable-icon {
+  width: fit-content;
+  height: fit-content;
+}
+.workspace-tab-header-inner-icon {
+  color: inherit !important;
+}
+
 
 // Panel actions
 .nav-header,

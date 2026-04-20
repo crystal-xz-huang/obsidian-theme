@@ -2,7 +2,7 @@ body,
 .theme-light,
 .theme-dark {
 	/* Color mappings ------------------------ */
-  --color-opacity: 1;
+	--color-opacity: 1;
 	--color-red: rgb(var(--color-red-rgb));
 	--color-orange: rgb(var(--color-orange-rgb));
 	--color-yellow: rgb(var(--color-yellow-rgb));
@@ -39,7 +39,7 @@ body,
 	--color-orange: rgba(var(--color-orange-rgb), var(--color-opacity));
 	--color-yellow-rgb: 214.2, 181.56, 132.6;
 	--color-yellow: rgba(var(--color-yellow-rgb), var(--color-opacity));
-  --color-green-rgb: 147.288, 199.512, 155.992;
+	--color-green-rgb: 147.288, 199.512, 155.992;
 	--color-green: rgba(var(--color-green-rgb), var(--color-opacity));
 	--color-cyan-rgb: 126.48, 199.92, 197.472;
 	--color-cyan: rgba(var(--color-cyan-rgb), var(--color-opacity));
@@ -262,7 +262,6 @@ body.theme-light {
 	--alternating-color-3: var(--color-l-blue-30);
 	--alternating-color-3-hover-active: var(--color-l-blue-40);
 
-
 	/* Shadow */
 	--shadow-s:
 		0px 1px 2px rgba(0, 0, 0, 0.028), 0px 3.4px 6.7px rgba(0, 0, 0, 0.042),
@@ -307,7 +306,7 @@ body.theme-light {
 	--background-modifier-success: var(--color-l-green-30);
 
 	/* Text Color */
-  --text-normal: var(--color-l-gray-130);
+	--text-normal: var(--color-l-gray-130);
 	--text-muted: var(--color-l-gray-100);
 	--text-faint: var(--color-l-gray-80);
 
@@ -482,7 +481,7 @@ body.theme-light {
 	--checklist-shadow-hover: 0px 0px 0px 3px rgba(0, 0, 0, 0.07);
 	--checklist-done-color: var(--color-l-gray-80);
 
-  /* Loading Bar */
+	/* Loading Bar */
 	--loading-line-bg-color: var(--background-secondary);
 	--loading-line-color: var(--color-l-blue-10);
 	--loading-line-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
@@ -832,6 +831,10 @@ body.theme-light {
 	--h6-border-right-color: var(--background-modifier-border);
 	--h6-border-bottom-color: var(--background-modifier-border);
 	--h6-border-left-color: var(--background-modifier-border);
+
+	/* Horizontal rules */
+	--hr-color: var(--background-modifier-border);
+	--hr-thickness: 4px;
 
 	/* Highlight */
 	--normal-highlight-color: var(--text-normal);
@@ -1648,7 +1651,7 @@ body.theme-light {
 	--strikethrough-highlight-color: var(--strikethrough-color);
 	--strikethrough-highlight-bg: var(--color-d-alpha-yellow);
 
-  /* Inline Title */
+	/* Inline Title */
 	--inline-title-color: var(--color-d-gray-10);
 
 	/* Inline Query */
@@ -1706,7 +1709,7 @@ body.theme-light {
 	--pill-tag-bg-3: var(--color-d-alpha-blue);
 	--pill-tag-shadow-hover: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
 
-  // --yaml-base-color: var(--color-red);
+	// --yaml-base-color: var(--color-red);
 	// --yaml-def-meta-color: var(--color-gray);
 	// --yaml-atom-color: var(--color-blue);
 	// --yaml-keyword-color: var(--color-yellow);

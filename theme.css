@@ -818,6 +818,9 @@ body.theme-light {
   --h6-border-right-color: var(--background-modifier-border);
   --h6-border-bottom-color: var(--background-modifier-border);
   --h6-border-left-color: var(--background-modifier-border);
+  /* Horizontal rules */
+  --hr-color: var(--background-modifier-border);
+  --hr-thickness: 4px;
   /* Highlight */
   --normal-highlight-color: var(--text-normal);
   --normal-highlight-bg: var(--color-l-alpha-yellow);
@@ -1551,50 +1554,6 @@ body.theme-light {
   --tag-shadow-active: inset 0px -0.1em 0px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* Obsidian app */
-/* ------------------------ */
-/* #region source view */
-/*
-    Typography
-    WIP. Loosely following github markdown styles, but will change over time
-    https://github.com/replete/obsidian-minimal-theme-css-snippets
-*/
-/* Markdown source view (not live preview) */
-.markdown-source-view:not(.is-live-preview) {
-  /* Set source view to monospace font */
-  --font-text: var(--font-monospace);
-  --h1-letter-spacing: normal;
-  --h2-letter-spacing: normal;
-  --h3-letter-spacing: normal;
-  --h4-letter-spacing: normal;
-  --h5-letter-spacing: normal;
-  --h6-letter-spacing: normal;
-  /* Reset header font sizes */
-}
-.markdown-source-view:not(.is-live-preview) .cm-header {
-  font-size: 1em;
-  font-variant: normal;
-}
-.markdown-source-view:not(.is-live-preview) {
-  /* Fix footnote indent */
-}
-.markdown-source-view:not(.is-live-preview) .HyperMD-footnote {
-  font-size: inherit;
-  padding-left: 0;
-  text-indent: 0;
-}
-.markdown-source-view:not(.is-live-preview) .cm-inline-code {
-  font-size: 0.9em !important;
-}
-.markdown-source-view:not(.is-live-preview) {
-  /* Fix heading font-size */
-}
-.markdown-source-view:not(.is-live-preview) .cm-line[class*=HyperMD-header-] {
-  font-size: inherit;
-  line-height: inherit;
-}
-
-/* #endregion source view */
 /* Obsidian workspace */
 /* ------------------------ */
 body .status-bar {
@@ -1678,20 +1637,29 @@ body.scrollbar-hide :not([style="overflow-x: auto;"])::-webkit-scrollbar {
   display: none !important;
 }
 
-.mod-sidedock.mod-left-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover),
-.mod-sidedock.mod-right-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) {
-  height: calc-size(auto, size);
+body {
+  --anim-motion-baseline: cubic-bezier(0.1, 0, 0.1, 1.25);
 }
-.mod-sidedock.mod-left-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) .workspace-tab-header,
-.mod-sidedock.mod-right-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) .workspace-tab-header {
-  background-color: var(--background-modifier-hover);
-  height: 4px;
+
+body:not(.is-phone) .workspace-tab-header-container {
+  transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+  background-color: transparent;
+  border-bottom: none;
 }
-.mod-sidedock.mod-left-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) .workspace-tab-header-inner-icon,
-.mod-sidedock.mod-left-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) .workspace-tab-header-inner-title,
-.mod-sidedock.mod-right-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) .workspace-tab-header-inner-icon,
-.mod-sidedock.mod-right-split .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) .workspace-tab-header-inner-title {
-  opacity: 0;
+
+.sidebar-toggle-button {
+  height: 100%;
+  padding-bottom: 8px;
+  align-items: center;
+}
+
+.sidebar-toggle-button .clickable-icon {
+  width: fit-content;
+  height: fit-content;
+}
+
+.workspace-tab-header-inner-icon {
+  color: inherit !important;
 }
 
 .nav-header,
@@ -2088,7 +2056,6 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   color: var(--icon-color-hover);
   border-color: transparent;
   background: var(--tab-bg);
-  transform: translateY(calc(-1 * var(--button-axis-offset)));
   cursor: var(--cursor);
 }
 .mod-left-split .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner,
@@ -2104,7 +2071,6 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   color: var(--icon-color-hover);
   border-color: transparent;
   background: var(--tab-bg);
-  transform: translateY(var(--button-axis-offset));
 }
 .mod-left-split .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner-title,
 .mod-right-split .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner-title {
@@ -2216,7 +2182,6 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   color: var(--icon-color-hover);
   border-color: transparent;
   background: var(--tab-bg);
-  transform: translateY(var(--button-axis-offset));
 }
 .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):active .workspace-tab-header-inner-title {
   color: var(--icon-color-hover);
@@ -3409,6 +3374,48 @@ input[type=number],
 }
 
 /* #endregion properties */
+/* #region source view */
+/*
+    Typography
+    WIP. Loosely following github markdown styles, but will change over time
+    https://github.com/replete/obsidian-minimal-theme-css-snippets
+*/
+/* Markdown source view (not live preview) */
+.markdown-source-view:not(.is-live-preview) {
+  /* Set source view to monospace font */
+  --font-text: var(--font-monospace);
+  --h1-letter-spacing: normal;
+  --h2-letter-spacing: normal;
+  --h3-letter-spacing: normal;
+  --h4-letter-spacing: normal;
+  --h5-letter-spacing: normal;
+  --h6-letter-spacing: normal;
+  /* Reset header font sizes */
+}
+.markdown-source-view:not(.is-live-preview) .cm-header {
+  font-size: 1em;
+  font-variant: normal;
+}
+.markdown-source-view:not(.is-live-preview) {
+  /* Fix footnote indent */
+}
+.markdown-source-view:not(.is-live-preview) .HyperMD-footnote {
+  font-size: inherit;
+  padding-left: 0;
+  text-indent: 0;
+}
+.markdown-source-view:not(.is-live-preview) .cm-inline-code {
+  font-size: 0.9em !important;
+}
+.markdown-source-view:not(.is-live-preview) {
+  /* Fix heading font-size */
+}
+.markdown-source-view:not(.is-live-preview) .cm-line[class*=HyperMD-header-] {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* #endregion source view */
 /* Core plugins */
 /* ------------------------ */
 /* #region bases */
@@ -3848,5 +3855,68 @@ body:not(.is-mobile):not(.zoom-off) .markdown-preview-view img[referrerpolicy=no
 }
 
 /* #endregion table helpers */
+/* #region table underline headings */
+/* Underline headings */
+/* Source: Minimal Theme */
+.theme-light,
+.theme-dark {
+  --h1l: var(--background-modifier-border);
+  --h2l: var(--background-modifier-border);
+  --h3l: var(--background-modifier-border);
+  --h4l: var(--background-modifier-border);
+  --h5l: var(--background-modifier-border);
+  --h6l: var(--background-modifier-border);
+}
+
+.markdown-reading-view h2,
+.mod-cm6 .cm-editor .HyperMD-header-2 {
+  border-bottom: 1px solid var(--h2l);
+  padding-bottom: 0.4em;
+  margin-block-end: 0.6em;
+}
+
+.h1-l .markdown-reading-view h1:not(.embedded-note-title),
+.h1-l .mod-cm6 .cm-editor .HyperMD-header-1 {
+  border-bottom: 1px solid var(--h1l);
+  padding-bottom: 0.4em;
+  margin-block-end: 0.6em;
+}
+
+.h2-l .markdown-reading-view h2,
+.h2-l .mod-cm6 .cm-editor .HyperMD-header-2 {
+  border-bottom: 1px solid var(--h2l);
+  padding-bottom: 0.4em;
+  margin-block-end: 0.6em;
+}
+
+.h3-l .markdown-reading-view h3,
+.h3-l .mod-cm6 .cm-editor .HyperMD-header-3 {
+  border-bottom: 1px solid var(--h3l);
+  padding-bottom: 0.4em;
+  margin-block-end: 0.6em;
+}
+
+.h4-l .markdown-reading-view h4,
+.h4-l .mod-cm6 .cm-editor .HyperMD-header-4 {
+  border-bottom: 1px solid var(--h4l);
+  padding-bottom: 0.4em;
+  margin-block-end: 0.6em;
+}
+
+.h5-l .markdown-reading-view h5,
+.h5-l .mod-cm6 .cm-editor .HyperMD-header-5 {
+  border-bottom: 1px solid var(--h5l);
+  padding-bottom: 0.4em;
+  margin-block-end: 0.6em;
+}
+
+.h6-l .markdown-reading-view h6,
+.h6-l .mod-cm6 .cm-editor .HyperMD-header-6 {
+  border-bottom: 1px solid var(--h6l);
+  padding-bottom: 0.4em;
+  margin-block-end: 0.6em;
+}
+
+/* #endregion table underline headings */
 
 /*# sourceMappingURL=theme.css.map */
