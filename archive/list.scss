@@ -1,23 +1,26 @@
+/*
+  Source: https://github.com/subframe7536/obsidian-theme-maple/blob/1.0/src/editor/list.scss | Maple Theme @subframe7536
+*/
+@use 'sass:string';
+
+@mixin use-no-plugin($selector, $suffix: '') {
+  // prettier-ignore
+  body:is(:not(.css-settings-manager),#{string.unquote($selector)})#{string.unquote($suffix)} {
+    @content;
+  }
+}
+
 $marker-color: var(--setting-list-marker, var(--accent-active));
 $marker-size: calc(var(--font-text-size) / 3 + var(--size-2-1));
 
-body {
+@include use-no-plugin('.list-enable') {
   --list-marker-color: #{$marker-color};
-  --list-marker-color-alt: var(
-    --setting-list-marker-alt,
-    var(--list-marker-color)
-  );
+  --list-marker-color-alt: var(--setting-list-marker-alt, var(--list-marker-color));
   --list-marker-color-alt-render: transparent;
   --checkbox-color: var(--accent-active);
   --checkbox-marker-color: var(--text-on-accent);
-  --checkbox-border-color: var(
-    --setting-list-checkbox-color,
-    var(--accent-inactive)
-  );
-  --checkbox-border-color-hover: var(
-    --setting-list-checkbox-color-hover,
-    var(--accent-active)
-  );
+  --checkbox-border-color: var(--setting-list-checkbox-color, var(--accent-inactive));
+  --checkbox-border-color-hover: var(--setting-list-checkbox-color-hover, var(--accent-active));
 
   .cm-formatting-list {
     padding-inline-start: var(--size-4-1);
@@ -124,9 +127,7 @@ body {
   .HyperMD-list-line-4 .list-bullet {
     --list-marker-color: transparent;
     --list-bullet-border: var(--list-marker-color-alt) var(--size-2-1) solid;
-    --list-bullet-size: calc(
-      #{$marker-size} * #{$optical-factor} - var(--size-2-1)
-    );
+    --list-bullet-size: calc(#{$marker-size} * #{$optical-factor} - var(--size-2-1));
     --list-bullet-radius: 0;
     transform: rotate(45deg);
   }
@@ -147,9 +148,7 @@ body {
       }
 
       & > ul > li {
-        --list-bullet-size: calc(
-          #{$marker-size} * #{$optical-factor} - var(--size-2-1)
-        );
+        --list-bullet-size: calc(#{$marker-size} * #{$optical-factor} - var(--size-2-1));
         --list-marker-color: var(--list-marker-color-alt-render);
 
         ul > li {

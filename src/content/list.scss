@@ -10,11 +10,150 @@ body {
   Space between list items
   Source: https://github.com/kepano/obsidian-minimal/blob/master/src/scss/content/lists.scss, author: @kepano
 */
-.markdown-source-view ol > li,
-.markdown-source-view ul > li,
-.markdown-preview-view ol > li,
-.markdown-preview-view ul > li,
+.markdown-source-view ol>li,
+.markdown-source-view ul>li,
+.markdown-preview-view ol>li,
+.markdown-preview-view ul>li,
 .mod-cm6 .HyperMD-list-line.cm-line {
-	padding-top: var(--list-spacing);
-	padding-bottom: var(--list-spacing);
+	padding-top:var(--list-spacing);
+	padding-bottom:var(--list-spacing);
+}
+
+.is-mobile {
+	ul > li:not(.task-list-item)::marker {
+		font-size:0.8em;
+	}
+}
+
+/*
+  Vertical spacing for code blocks inside list items
+*/
+.markdown-reading-view li > pre {
+  margin-top: calc(var(--list-spacing) * 2);
+  margin-bottom: var(--list-spacing);
+}
+
+/*
+  List bullet styles
+*/
+body {
+  --list-bullet-border: none;
+  --list-bullet-radius: 50%;
+  --list-bullet-size: 0.3em;
+  --list-bullet-size-alt: calc(var(--list-bullet-size) / 2);
+  --list-bullet-transform: none;
+  --list-numbered-style: decimal;
+}
+
+/* Unordered List ------------------ */
+/* LEVEL 1 */
+.markdown-rendered .has-list-bullet .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-1.cm-line div.cm-fold-indicator~span.cm-formatting .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-1.cm-line>span.cm-formatting:first-of-type .list-bullet::after {
+  /* Solid Circle */
+  --list-bullet-radius: 50%;
+  --list-bullet-border: none;
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
+  background-color: var(--list-marker-color);
+}
+
+/* LEVEL 2 */
+.markdown-rendered .has-list-bullet .has-list-bullet .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-2.cm-line div.cm-fold-indicator~span.cm-formatting .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-2.cm-line span.cm-hmd-list-indent~span.cm-formatting .list-bullet::after {
+  /* Hollow Circle */
+  --list-bullet-radius: 50%;
+  --list-bullet-border: 1.5px solid var(--list-marker-color);
+  width: calc(var(--list-bullet-size) - 1.5px);
+  height: calc(var(--list-bullet-size) - 1.5px);
+  background-color: transparent;
+}
+
+/* LEVEL 3 */
+.markdown-rendered .has-list-bullet .has-list-bullet .has-list-bullet .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-3.cm-line div.cm-fold-indicator~span.cm-formatting .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-3.cm-line span.cm-hmd-list-indent~span.cm-formatting .list-bullet::after {
+  /* Solid Square */
+  --list-bullet-radius: 0;
+  --list-bullet-border: none;
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
+  background-color: var(--list-marker-color);
+}
+
+/* LEVEL 4 */
+.markdown-rendered .has-list-bullet .has-list-bullet .has-list-bullet .has-list-bullet .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-4.cm-line div.cm-fold-indicator~span.cm-formatting .list-bullet::after,
+.markdown-source-view.mod-cm6 .HyperMD-list-line.HyperMD-list-line-4.cm-line span.cm-hmd-list-indent~span.cm-formatting .list-bullet::after {
+  /* Diamond */
+  --list-bullet-radius: 0;
+  --list-bullet-border: none;
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
+  background-color: var(--list-marker-color);
+  transform: rotate(45deg);
+}
+
+/* List all */
+.markdown-rendered .has-list-bullet .has-list-bullet .has-list-bullet .has-list-bullet .list-bullet::after,
+.markdown-rendered .list-bullet::after,
+.markdown-source-view.mod-cm6 .list-bullet::after {
+  /* Circle */
+  --list-bullet-radius: 50%;
+  --list-bullet-border: none;
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
+  background-color: var(--list-marker-color);
+}
+
+li.is-collapsed .list-bullet:after,
+.is-collapsed~.cm-formatting-list .list-bullet:after {
+  background-color: var(--list-marker-color-collapsed) !important;
+}
+
+ol>li.is-collapsed::marker,
+ul>li.is-collapsed::marker,
+.cm-s-obsidian .is-collapsed~.cm-formatting-list {
+  color: var(--list-marker-color-collapsed) !important;
+}
+
+@media (hover: hover) {
+  .list-collapse-indicator:hover~.list-bullet:after,
+  .cm-fold-indicator:hover~.list-bullet:after,
+  .list-collapse-indicator:hover~.cm-formatting-list .list-bullet:after,
+  .cm-fold-indicator:hover~.cm-formatting-list .list-bullet:after {
+    background-color: var(--list-marker-color-hover) !important;
+  }
+
+  li.is-collapsed .list-collapse-indicator:hover~.list-bullet:after,
+  li.is-collapsed .cm-fold-indicator:hover~.list-bullet:after,
+  .list-collapse-indicator:hover.is-collapsed~.list-bullet:after,
+  .cm-fold-indicator:hover.is-collapsed~.list-bullet:after,
+  li.is-collapsed .list-collapse-indicator:hover~.cm-formatting-list .list-bullet:after,
+  li.is-collapsed .cm-fold-indicator:hover~.cm-formatting-list .list-bullet:after,
+  .list-collapse-indicator:hover.is-collapsed~.cm-formatting-list .list-bullet:after,
+  .cm-fold-indicator:hover.is-collapsed~.cm-formatting-list .list-bullet:after {
+    background-color: var(--list-marker-color-collapsed) !important;
+  }
+}
+/* Ordered Lists ------------------ */
+/* LEVEL 1 */
+ol {
+  list-style-type: decimal;
+}
+
+/* LEVEL 2 */
+ol ol li {
+  list-style-type: lower-alpha;
+}
+
+/* LEVEL 3 */
+ol ol ol li {
+  list-style-type: lower-roman;
+}
+
+/* LEVEL 4 */
+ol ol ol ol li {
+  list-style-type: square;
 }

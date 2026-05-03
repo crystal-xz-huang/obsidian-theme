@@ -1,0 +1,63 @@
+/* Source: https://github.com/subframe7536/obsidian-theme-maple/blob/1.0/src/utils.scss | Maple Theme @subframe7536 */
+
+@use 'sass:string';
+@use 'sass:color';
+
+@mixin var-color($name, $color) {
+  $rgb:
+    color.channel($color, 'red', $space: rgb), color.channel($color, 'green', $space: rgb),
+    color.channel($color, 'blue', $space: rgb);
+  --color-#{$name}-rgb: #{$rgb};
+  --color-#{$name}: rgba(var(--color-#{$name}-rgb), var(--color-opacity));
+}
+
+@mixin use-no-plugin($selector, $suffix: '') {
+  // prettier-ignore
+  body:is(:not(.css-settings-manager),#{string.unquote($selector)})#{string.unquote($suffix)} {
+    @content;
+  }
+}
+
+@mixin use-panel($name, $child: '') {
+  .workspace-leaf-content[data-type='#{$name}'] #{string.unquote($child)} {
+    @content;
+  }
+}
+
+@mixin use-icon($icon-name, $color: none, $size: none) {
+  @if string.slice($icon-name, 1, 2) == '--' {
+    -webkit-mask: var(#{$icon-name}) no-repeat;
+  } @else {
+    -webkit-mask: icon($icon-name) no-repeat;
+  }
+  -webkit-mask-size: 100% 100%;
+  @if $color != none {
+    background-color: currentColor;
+    color: $color;
+  }
+  @if $size != none {
+    width: $size;
+    height: $size;
+  }
+}
+
+@mixin use-icon-override($svg-class, $icon-name) {
+  #{$svg-class} {
+    -webkit-mask: icon($icon-name) no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask: ignore;
+    mask-size: ignore;
+    background-color: currentColor;
+
+    path {
+      display: none;
+    }
+  }
+}
+
+@function use-animation($name) {
+  @if $name == 'op' or $name == 'slide-up' or $name == 'fade-dock' {
+    @return #{$name} var(--animation-slow);
+  }
+  @error "No such animation" + $name;
+}
