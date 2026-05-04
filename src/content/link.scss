@@ -110,7 +110,11 @@ a.external-link {
 	background-size: unset;
 	padding-right: 0;
 }
-
+gi
 span.external-link {
 	display: none;
+}
+
+.internal-link.is-unresolved {
+  text-underline-offset: 1px;
 }
