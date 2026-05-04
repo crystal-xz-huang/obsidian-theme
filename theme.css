@@ -531,28 +531,12 @@ body.theme-light {
   /* Navigation */
   --nav-item-color: var(--color-l-gray-110);
   --nav-item-color-hover: var(--color-l-gray-110);
-  --nav-item-color-active: #fafafa;
-  --nav-item-color-selected: var(--color-l-gray-20);
+  --nav-item-color-active: var(--color-l-gray-120);
+  --nav-item-color-selected: var(--color-l-gray-140);
   --nav-item-color-highlighted: var(--text-accent-hover);
   --nav-item-background-hover: var(--background-modifier-hover);
-  --nav-item-background-active: var(--color-l-gray-80);
-  --nav-item-background-selected: hsla(197, 82%, 27%, 0.5);
-  --nav-item-background-selected-hover: hsla(197, 82%, 27%, 0.4);
-  --nav-indentation-guide-color: var(--indentation-guide-color);
-  --nav-collapse-icon-color: var(--collapse-icon-color);
-  --nav-collapse-icon-color-collapsed: var(--text-faint);
-  --nav-heading-color: var(--color-l-gray-100);
-  --nav-heading-color-hover: var(--color-l-gray-100);
-  --nav-heading-color-collapsed: var(--color-l-gray-100);
-  --nav-heading-color-collapsed-hover: var(--color-l-gray-100);
-  --nav-item-shadow-active: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
-  --nav-file-shadow-active:
-  	inset 0px 0px 0px 1px rgba(0, 0, 0, 0.09),
-  	inset 0px calc(-1 * var(--button-axis-offset)) 0px
-  		var(--button-axis-offset) rgba(0, 0, 0, 0.07),
-  	0px 2px 3px 0px rgba(0, 0, 0, 0.05);
-  --nav-file-tag-color: var(--color-l-gray-90);
-  --nav-file-tag-bg: transparent;
+  --nav-item-background-active: var(--background-modifier-active-hover);
+  --nav-item-background-selected: var(--background-modifier-hover);
   --collapse-icon-color: var(--color-l-gray-70);
   --collapse-icon-color-collapsed: var(--color-l-gray-70);
   --flair-count-color: var(--color-l-gray-80);
@@ -1174,23 +1158,7 @@ body.theme-light {
   --nav-item-color-highlighted: var(--text-accent-hover);
   --nav-item-background-hover: rgba(0, 0, 0, 0.125);
   --nav-item-background-active: rgba(0, 0, 0, 0.125);
-  --nav-item-background-selected: hsla(197, 45%, 29%, 0.5);
-  --nav-item-background-selected-hover: hsla(197, 45%, 29%, 0.4);
-  --nav-indentation-guide-color: var(--indentation-guide-color);
-  --nav-collapse-icon-color: var(--collapse-icon-color);
-  --nav-collapse-icon-color-collapsed: var(--text-faint);
-  --nav-heading-color: var(--color-d-gray-50);
-  --nav-heading-color-hover: var(--color-d-gray-50);
-  --nav-heading-color-collapsed: var(--color-d-gray-50);
-  --nav-heading-color-collapsed-hover: var(--color-d-gray-50);
-  --nav-item-shadow-active: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.23);
-  --nav-file-shadow-active:
-  	inset 0px 0px 0px 1px rgba(0, 0, 0, 0.27),
-  	inset 0px calc(-1 * var(--button-axis-offset)) 0px
-  		var(--button-axis-offset) rgba(0, 0, 0, 0.24),
-  	0px 2px 3px 0px rgba(0, 0, 0, 0.22);
-  --nav-file-tag-color: var(--color-d-gray-60);
-  --nav-file-tag-bg: transparent;
+  --nav-item-background-selected: rgba(255, 255, 255, 0.126);
   --collapse-icon-color: var(--color-d-gray-60);
   --collapse-icon-color-collapsed: var(--color-d-gray-60);
   --flair-count-color: var(--color-d-gray-60);
