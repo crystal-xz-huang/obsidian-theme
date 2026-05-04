@@ -25,6 +25,13 @@ body {
   --code-size: var(--font-smallest);
 }
 
+code,
+code *,
+.HyperMD-codeblock *,
+.cm-inline-code {
+  font-feature-settings: var(--setting-code-ligature, 'calt');
+}
+
 // Keyboard shortcuts
 kbd {
 	border: 1px solid var(--background-modifier-border);

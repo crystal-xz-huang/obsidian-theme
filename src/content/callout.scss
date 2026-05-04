@@ -1,21 +1,37 @@
+// .callout {
+// 	--icon-stroke: 2px;
+// 	--callout-border-width: 1.5px;
+// 	--callout-padding: 0;
+// 	--callout-radius: var(--radius-s);
+// 	background-color: rgb(var(--callout-color), 11%);
+// }
+
+// .callout-title {
+// 	padding: 3px 6px;
+// 	background-color: rgb(var(--callout-color), 15%);
+// 	border-bottom: var(--callout-border-width) solid
+// 		rgb(var(--callout-color), var(--callout-border-opacity));
+// }
+
+// .callout-content {
+// 	padding: 0px 8px;
+// }
+
 .callout {
-	--icon-stroke: 2px;
-	--callout-border-width: 1.5px;
-	--callout-padding: 0;
-	--callout-radius: var(--radius-s);
-	background-color: rgb(var(--callout-color), 11%);
+  --callout-padding: 0px;
+  --callout-radius: var(--radius-s);
 }
 
 .callout-title {
-	padding: 3px 6px;
-	background-color: rgb(var(--callout-color), 15%);
-	border-bottom: var(--callout-border-width) solid
-		rgb(var(--callout-color), var(--callout-border-opacity));
+	padding: 12px 12px;
+}
+.callout-content {
+	padding: 0px 14px;
+  > p {
+    margin-top: 0;
+  }
 }
 
-.callout-content {
-	padding: 0px 8px;
-}
 
 // Gap between icon and title
 .callout-title-inner,
