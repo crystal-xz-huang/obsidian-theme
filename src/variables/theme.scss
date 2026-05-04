@@ -2,6 +2,7 @@
 body,
 .theme-light,
 .theme-dark {
+  --color-opacity: 1;
 	/* Color mappings ------------------------ */
 	--color-red: rgb(var(--color-red-rgb));
 	--color-orange: rgb(var(--color-orange-rgb));

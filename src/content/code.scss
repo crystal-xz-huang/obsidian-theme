@@ -2,16 +2,10 @@
 @use 'sass:list';
 @use 'sass:meta';
 
-@mixin use-no-plugin($selector, $suffix: '') {
-  // prettier-ignore
-  body:is(:not(.css-settings-manager),#{string.unquote($selector)})#{string.unquote($suffix)} {
-    @content;
-  }
-}
 
 body {
-  --inline-code: var(--setting-code-inline, var(--color-red));
-  --code-background: var(--setting-code-bg, var(--background-primary-alt));
+	--inline-code: var(--color-red);
+	--code-background: var(--background-primary-alt);
   --code-function: var(--color-blue);
   --code-important: var(--color-purple);
   --code-keyword: var(--color-purple);
@@ -28,10 +22,30 @@ body {
   --code-radius: var(--radius-m);
   --code-border-color: var(--background-modifier-border);
   --code-border-width: 1px;
+  --code-size: var(--font-smallest);
 }
 
-code {
-  font-family: var(--font-monospace);
+/* Inline code */
+.theme-light {
+	--inline-code-bg: var(--color-l-gray-15);
+}
+
+.theme-dark {
+	--inline-code-bg: var(--color-d-gray-130);
+}
+
+.cm-html-embed.cm-embed-block pre code,
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting),
+.cm-s-obsidian code:not(pre code),
+.markdown-rendered code:not(pre code) {
+	color: var(--inline-code) !important;
+	background: var(--inline-code-bg);
+}
+
+code,
+.cm-s-obsidian span.cm-inline-code {
+	font-family: var(--font-monospace);
+	font-size: var(--code-size) !important;
 }
 
 .cm-hmd-codeblock.cm-formatting,
@@ -128,7 +142,7 @@ code {
 .markdown-source-view.mod-cm6 .code-block-flair {
   --cursor: pointer;
   padding-block: 0;
-  color: var(--setting-code-language-color, var(--inline-code));
+  color: var(--inline-code);
   transition: background-color var(--animation);
   font-family: var(--font-monospace);
   font-weight: 550;
@@ -209,7 +223,7 @@ body .markdown-rendered pre {
 }
 
 /* https://prismjs.com/#supported-languages */
-@include use-no-plugin('.code-language') {
+body {
   $language:
     Markup, HTML, XML, SVG, MathML, SSML, Atom, RSS, CSS, (JavaScript, js), (Typescript, ts), JSX,
     (TypeScript-JSX, tsx), Ada, Apex, AppleScript, AQL, (Arduino, ino), (ArmAsm, arm-asm),
@@ -273,77 +287,7 @@ body .markdown-rendered pre {
   font-family: var(--font-monospace);
 }
 
-.code-theme :is(.markdown-rendered, .markdown-source-view.mod-cm6) {
-  .token {
-    &.script {
-      color: var(--code-normal);
-    }
-    &.imports {
-      color: var(--code-variable);
-    }
-    &:is(.builtin, .regex, .keyword) {
-      font-style: italic;
-      color: var(--code-important);
-    }
-    &:is(.selector, .inserted, .char, .attr-value) {
-      color: var(--color-green);
-    }
-    &:is(.class-name, .maybe-class-name, .color) {
-      color: var(--code-class);
-    }
-    &:is(.property-access, .attr-name, .annotation, .key, .entity, .parameter, .url) {
-      color: var(--code-variable);
-    }
-    &:is(.comment, .prolog, .doctype, .cdata) {
-      color: var(--code-comment);
-    }
-  }
-
-  .cm-tag {
-    color: var(--code-tag);
-  }
-
-  :is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
-    color: var(--code-punctuation);
-  }
-
-  .cm-number {
-    color: var(--code-value);
-  }
-
-  :is(.cm-qualifier, .cm-string:not(.cm-url), .cm-string-2, .cm-meta:not(.cm-hashtag)) {
-    color: var(--code-string);
-  }
-
-  :is(.cm-def, .cm-property, .cm-number + .cm-variable, .cm-attribute, .cm-atom) {
-    color: var(--code-property);
-  }
-
-  :is(.cm-type, .cm-builtin) {
-    color: var(--code-keyword);
-  }
-
-  .cm-type {
-    font-weight: 550;
-  }
-
-  .cm-keyword {
-    font-style: italic;
-  }
-
-  .cm-variable {
-    color: var(--code-function);
-  }
-
-  .cm-variable-2 {
-    color: var(--code-value);
-  }
-
-  .cm-variable-3 {
-    filter: hue-rotate(40deg);
-  }
-}
-
+/* Codeblock header style inspired by macOS */
 .theme-light {
   --code-mac-style-header-bg: #333;
   --code-mac-style-header-color: #ddd;
@@ -400,6 +344,7 @@ body .markdown-rendered pre {
   }
 }
 
+/* Line numbers */
 .code-line-number .cm-contentContainer {
   counter-reset: code-line;
 
@@ -466,4 +411,155 @@ $default-code-bg: linear-gradient(
       }
     }
   }
+}
+
+// Source view
+:is(.cm-tag, .cm-attribute, .cm-string:not(.cm-url)) {
+	font-family: var(--font-monospace);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .token.script {
+	color: var(--code-normal);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .token.imports {
+	color: var(--code-variable);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.builtin, .regex, .keyword) {
+	font-style: italic;
+	color: var(--code-important);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.selector, .inserted, .char, .attr-value) {
+	color: var(--color-green);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.class-name, .maybe-class-name, .color) {
+	color: var(--code-class);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(
+		.property-access,
+		.attr-name,
+		.annotation,
+		.key,
+		.entity,
+		.parameter,
+		.url
+	) {
+	color: var(--code-variable);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	.token:is(.comment, .prolog, .doctype, .cdata) {
+	color: var(--code-comment);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-tag {
+	color: var(--code-tag);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+	color: var(--code-punctuation);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-number {
+	color: var(--code-value);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(
+		.cm-qualifier,
+		.cm-string:not(.cm-url),
+		.cm-string-2,
+		.cm-meta:not(.cm-hashtag)
+	) {
+	color: var(--code-string);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(
+		.cm-def,
+		.cm-property,
+		.cm-number + .cm-variable,
+		.cm-attribute,
+		.cm-atom
+	) {
+	color: var(--code-property);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6)
+	:is(.cm-type, .cm-builtin) {
+	color: var(--code-keyword);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-type {
+	font-weight: 550;
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-keyword {
+	font-style: italic;
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable {
+	color: var(--code-function);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable-2 {
+	color: var(--code-value);
+}
+
+:is(.markdown-rendered, .markdown-source-view.mod-cm6) .cm-variable-3 {
+	filter: hue-rotate(40deg);
+}
+
+.cm-tag {
+	color: var(--code-tag);
+}
+
+:is(.cm-punctuation, .cm-bracket, .cm-hr, .cm-operator) {
+	color: var(--code-punctuation);
+}
+
+.cm-number {
+	color: var(--code-value);
+}
+
+:is(
+	.cm-qualifier,
+	.cm-string:not(.cm-url),
+	.cm-string-2,
+	.cm-meta:not(.cm-hashtag)
+) {
+	color: var(--code-string);
+}
+
+:is(.cm-def, .cm-property, .cm-number + .cm-variable, .cm-attribute, .cm-atom) {
+	color: var(--code-property);
+}
+
+:is(.cm-type, .cm-builtin) {
+	color: var(--code-keyword);
+}
+
+.cm-type {
+	font-weight: 550;
+}
+
+.cm-keyword {
+	font-style: italic;
+}
+
+.cm-variable {
+	color: var(--code-function);
+}
+
+.cm-variable-2 {
+	color: var(--code-value);
+}
+
+.cm-variable-3 {
+	filter: hue-rotate(40deg);
 }
