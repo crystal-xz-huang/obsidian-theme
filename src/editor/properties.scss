@@ -278,3 +278,9 @@ div.metadata-container {
 // 		color: var(--yaml-string-color);
 // 	}
 // }
+
+
+// Vertical spacing under properties box
+.cm-s-obsidian .cm-line.HyperMD-header {
+  padding-top: 0 !important;
+}

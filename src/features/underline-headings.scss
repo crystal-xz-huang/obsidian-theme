@@ -11,13 +11,6 @@
 	--h6l: var(--background-modifier-border);
 }
 
-.markdown-reading-view h2,
-.mod-cm6 .cm-editor .HyperMD-header-2 {
-	border-bottom: 1px solid var(--h2l);
-	padding-bottom: 0.4em;
-	margin-block-end: 0.6em;
-}
-
 .h1-l .markdown-reading-view h1:not(.embedded-note-title),
 .h1-l .mod-cm6 .cm-editor .HyperMD-header-1 {
 	border-bottom: 1px solid var(--h1l);
@@ -51,6 +44,14 @@
 .h6-l .markdown-reading-view h6,
 .h6-l .mod-cm6 .cm-editor .HyperMD-header-6 {
 	border-bottom: 1px solid var(--h6l);
+	padding-bottom: 0.4em;
+	margin-block-end: 0.6em;
+}
+
+/* By default, underline H2 */
+.markdown-reading-view h2,
+.mod-cm6 .cm-editor .HyperMD-header-2 {
+	border-bottom: 1px solid var(--h2l);
 	padding-bottom: 0.4em;
 	margin-block-end: 0.6em;
 }
