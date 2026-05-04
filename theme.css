@@ -4284,7 +4284,6 @@ body {
 
 .bases-table-cell {
   line-height: 1.2em;
-  overflow: scroll;
 }
 
 .bases-table-cell .value-list-gap::before {
