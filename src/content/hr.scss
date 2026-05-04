@@ -1,10 +1,33 @@
 body {
-	/* Horizontal rules */
-	--hr-color: var(--background-modifier-border);
-	--hr-thickness: 4px;
+	--hr-color: color-mix(in srgb, var(--background-modifier-border) 75%, var(--text-normal));
+	--hr-thickness: 2px;
 }
 
-.markdown-rendered hr {
-  margin-block-start: 2.4rem !important;
-  margin-block-end: 2.4rem !important;
+.markdown-preview-view hr {
+  margin-block-start: calc(24px + 11px);
+  margin-block-end: calc(24px + 11px);
+}
+
+/* ====== DOTS FOR HR ====== */
+.markdown-source-view.mod-cm6.hr-dots .hr > hr,
+.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr {
+  display: block;
+  border: 0;
+  background: none;
+  text-align: center;
+  overflow: visible;
+}
+
+.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr {
+  margin-block: 24px;
+}
+
+.markdown-source-view.mod-cm6.hr-dots .hr > hr:before,
+.workspace-leaf-content .view-content .hr-dots.markdown-preview-view hr:before {
+  content: '\2022\2022\2022';
+  display: inline-block;
+  font-size: calc(.8em + .2vw);
+  margin-left: 0.6em;
+  letter-spacing: 1.25em;
+  color: var(--hr-color);
 }
